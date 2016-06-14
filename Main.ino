@@ -10,7 +10,7 @@
 
 ADAS1000 *adas1000;
 
-DataCapture<double> *d;
+DataCapture<double> *de;
 
 void setup()
 {
