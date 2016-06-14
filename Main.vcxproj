@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9AB1C289-D1AE-4450-BEFA-8691B3EFFD65}</ProjectGuid>
+    <RootNamespace>Main</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries\Wire;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries\Wire\utility;C:\Program Files (x86)\Arduino\libraries;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\0val4ksk.c4t\Micro Platforms\default\debuggers;C:\Users\Benjamin\Documents\Arduino\libraries;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\cores\arduino;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\cores\arduino\avr;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\variants\linkit_one;C:\Users\Benjamin\Documents\Arduino\Main;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk/include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk/include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\4.8.3-2014q1\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\arm-none-eabi\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>C:\Users\Benjamin\Documents\Arduino\Main\__vm\.Main.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>printf=iprintf;F_CPU=84000000L;ARDUINO=10609;ARDUINO_MTK_ONE;ARDUINO_ARCH_ARM;__COMPILER_GCC__;__LINKIT_ONE__;__LINKIT_ONE_RELEASE__;USB_VID=0x0E8D;USB_PID=0x0023;USBCON;__cplusplus=201103L;GCC_VERSION=40803;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="Main.ino">
+      <FileType>CppCode</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ADAS1000.h" />
+    <ClInclude Include="DataCapture.h" />
+    <ClInclude Include="ECG.h" />
+    <ClInclude Include="ECG250HzCapture.h" />
+    <ClInclude Include="ECGCapture.h" />
+    <ClInclude Include="SPIdev.h" />
+    <ClInclude Include="TestToneCapture.h" />
+    <ClInclude Include="__vm\.Main.vsarduino.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ADAS1000.cpp" />
+    <ClCompile Include="DataCapture.cpp" />
+    <ClCompile Include="ECG.cpp" />
+    <ClCompile Include="ECG250HzCapture.cpp" />
+    <ClCompile Include="ECGCapture.cpp" />
+    <ClCompile Include="SPIdev.cpp" />
+    <ClCompile Include="TestToneCapture.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties arduino.upload.maximum_size="10485760" arduino.upload.speed="" visualmicro.package.name="LinkIt" arduino.board.property_bag="name=LinkIt ONE&#xD;&#xA;vid.0=0x0E8D&#xD;&#xA;pid.0=0x0023&#xD;&#xA;upload.tool=linkit_tools&#xD;&#xA;upload.protocol=mtk-one&#xD;&#xA;upload.maximum_size=10485760&#xD;&#xA;upload.use_1200bps_touch=true&#xD;&#xA;upload.wait_for_upload_port=true&#xD;&#xA;upload.native_usb=true&#xD;&#xA;build.mcu=arm7tdmi-s&#xD;&#xA;build.f_cpu=84000000L&#xD;&#xA;build.usb_product=&quot;LinkIt ONE&quot;&#xD;&#xA;build.board=MTK_ONE&#xD;&#xA;build.core=arduino&#xD;&#xA;build.extra_flags=-D__COMPILER_GCC__ -D__LINKIT_ONE__ -D__LINKIT_ONE_RELEASE__ -mthumb {build.usb_flags}&#xD;&#xA;build.ldscript=linker_scripts/gcc/scat.ld&#xD;&#xA;build.variant=linkit_one&#xD;&#xA;build.variant_system_lib=libmtk.a&#xD;&#xA;build.vid=0x0E8D&#xD;&#xA;build.pid=0x0023&#xD;&#xA;bootloader.tool=linkit_tools&#xD;&#xA;runtime.ide.path=C:\Program Files (x86)\Arduino&#xD;&#xA;build.system.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system&#xD;&#xA;runtime.ide.version=10609&#xD;&#xA;target_package=LinkIt&#xD;&#xA;target_platform=arm&#xD;&#xA;runtime.hardware.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm&#xD;&#xA;originalid=linkit_arm_linkit_one&#xD;&#xA;version=1.5.7&#xD;&#xA;compiler.path={runtime.tools.arm-none-eabi-gcc.path}/bin/&#xD;&#xA;compiler.c.cmd=arm-none-eabi-gcc&#xD;&#xA;compiler.c.flags=-c -g -O2 -MMD -ffunction-sections -fdata-sections -fvisibility=hidden -fpic -mthumb -mlittle-endian -nostdlib -Dprintf=iprintf &quot;-I{build.system.path}/libmtk&quot; &quot;-I{build.system.path}/libmtk/include&quot;&#xD;&#xA;compiler.c.elf.cmd=arm-none-eabi-g++&#xD;&#xA;compiler.c.elf.flags=-O2 -Wl,--gc-sections&#xD;&#xA;compiler.S.flags=-c -g -x assembler-with-cpp&#xD;&#xA;compiler.cpp.cmd=arm-none-eabi-g++&#xD;&#xA;compiler.cpp.flags=-c -g -O2 -MMD -ffunction-sections -fdata-sections -fvisibility=hidden -fpic -mthumb -mlittle-endian -nostdlib -fno-non-call-exceptions -fno-rtti -fno-exceptions -Dprintf=iprintf &quot;-I{build.system.path}/libmtk&quot; &quot;-I{build.system.path}/libmtk/include&quot;&#xD;&#xA;compiler.ar.cmd=arm-none-eabi-ar&#xD;&#xA;compiler.ar.flags=rcs&#xD;&#xA;compiler.objcopy.cmd=arm-none-eabi-objcopy&#xD;&#xA;compiler.objcopy.remove.flags=--strip-debug&#xD;&#xA;compiler.size.cmd=arm-none-eabi-size&#xD;&#xA;compiler.define=-DARDUINO=&#xD;&#xA;compiler.libmtk.c.flags=&quot;-I{build.system.path}/libmtk&quot; &quot;-I{build.system.path}/libmtk/include&quot;&#xD;&#xA;build.usb_flags=-DUSB_VID={build.vid} -DUSB_PID={build.pid} -DUSBCON '-DUSB_MANUFACTURER={build.usb_manufacturer}' '-DUSB_PRODUCT={build.usb_product}'&#xD;&#xA;build.usb_manufacturer=&quot;Unknown&quot;&#xD;&#xA;recipe.c.o.pattern=&quot;{compiler.path}{compiler.c.cmd}&quot; {compiler.c.flags} -mcpu={build.mcu} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {build.extra_flags} {compiler.libmtk.c.flags} {includes} &quot;{source_file}&quot; -o &quot;{object_file}&quot;&#xD;&#xA;recipe.cpp.o.pattern=&quot;{compiler.path}{compiler.cpp.cmd}&quot; {compiler.cpp.flags} -mcpu={build.mcu} -DF_CPU={build.f_cpu} -DARDUINO={runtime.ide.version} -DARDUINO_{build.board} -DARDUINO_ARCH_{build.arch} {build.extra_flags} {compiler.libmtk.c.flags} {includes} &quot;{source_file}&quot; -o &quot;{object_file}&quot;&#xD;&#xA;recipe.ar.pattern=&quot;{compiler.path}{compiler.ar.cmd}&quot; {compiler.ar.flags} &quot;{archive_file_path}&quot; &quot;{object_file}&quot;&#xD;&#xA;recipe.c.combine.pattern=&quot;{compiler.path}{compiler.c.elf.cmd}&quot; {compiler.c.elf.flags} -mcpu={build.mcu} &quot;-T{build.variant.path}/{build.ldscript}&quot; &quot;-Wl,-Map,{build.path}/{build.project_name}.map&quot; -o &quot;{build.path}/{build.project_name}.elf&quot; &quot;-L{build.path}&quot; -lm -fpic -pie -Wl,--entry=gcc_entry -Wl,--unresolved-symbols=report-all -Wl,--warn-common -Wl,--warn-unresolved-symbols -Wl,--start-group &quot;{build.path}/{archive_file}&quot; {object_files} &quot;{build.variant.path}/{build.variant_system_lib}&quot; -Wl,--end-group&#xD;&#xA;recipe.objcopy.eep.pattern=&quot;{compiler.path}{compiler.objcopy.cmd}&quot; {compiler.objcopy.remove.flags} &quot;{build.path}/{build.project_name}.elf&quot;&#xD;&#xA;recipe.objcopy.hex.cmd=PackTag.bat&#xD;&#xA;recipe.objcopy.hex.cmd.windows=PackTag.bat&#xD;&#xA;recipe.objcopy.hex.pattern=&quot;{runtime.tools.linkit_tools.path}/{recipe.objcopy.hex.cmd}&quot; &quot;{build.path}/{build.project_name}.elf&quot; &quot;{build.path}/{build.project_name}.vxp&quot;&#xD;&#xA;recipe.size.pattern=&quot;{compiler.path}{compiler.size.cmd}&quot; -A &quot;{build.path}/{build.project_name}.vxp&quot;&#xD;&#xA;recipe.size.regex=\.text\s+([0-9]+).*&#xD;&#xA;tools.linkit_tools.cmd=PushTool.bat&#xD;&#xA;tools.linkit_tools.cmd.windows=PushTool.bat&#xD;&#xA;tools.linkit_tools.path={runtime.tools.linkit_tools.path}&#xD;&#xA;tools.linkit_tools.upload.params.verbose=-v -v -v -v&#xD;&#xA;tools.linkit_tools.upload.params.quiet=&#xD;&#xA;tools.linkit_tools.upload.pattern=&quot;{path}/{cmd}&quot; {serial.port.file} &quot;{build.path}/{build.project_name}.vxp&quot;&#xD;&#xA;tools.linkit_tools.bootloader.params.verbose=-v -v -v -v&#xD;&#xA;tools.linkit_tools.bootloader.params.quiet=&#xD;&#xA;tools.linkit_tools.bootloader.cmd=FirmwareUpdater.exe&#xD;&#xA;tools.linkit_tools.bootloader.pattern=&quot;{path}/FirmwareUpdater.exe&quot;&#xD;&#xA;tools.linkit_tools.bootloader.cmd.windows=FirmwareUpdater.exe&#xD;&#xA;tools.linkit_tools.bootloader.pattern.windows=&quot;{path}/FirmwareUpdater.exe&quot;&#xD;&#xA;tools.linkit_tools.erase.params.verbose=-v&#xD;&#xA;tools.linkit_tools.erase.params.quiet=-q -q&#xD;&#xA;tools.linkit_tools.erase.pattern=&#xD;&#xA;vm.platform.root.path=C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\0val4ksk.c4t\Micro Platforms\arduino16x&#xD;&#xA;linkitfirmware.name=LinkIt Firmware Updater&#xD;&#xA;linkitfirmware.communication=usb&#xD;&#xA;linkitfirmware.program.tool=linkit_tools&#xD;&#xA;runtime.tools.arm-none-eabi-gcc.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1&#xD;&#xA;runtime.tools.arm-none-eabi-gcc-4.8.3-2014q1.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1&#xD;&#xA;runtime.tools.avrdude.path=C:\Program Files (x86)\Arduino\hardware\tools\avr&#xD;&#xA;runtime.tools.avrdude-6.0.1-arduino5.path=C:\Program Files (x86)\Arduino\hardware\tools\avr&#xD;&#xA;runtime.tools.avr-gcc.path=C:\Program Files (x86)\Arduino\hardware\tools\avr&#xD;&#xA;runtime.tools.avr-gcc-4.8.1-arduino5.path=C:\Program Files (x86)\Arduino\hardware\tools\avr&#xD;&#xA;runtime.tools.linkit_tools.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\linkit_tools\1.1.21&#xD;&#xA;runtime.tools.linkit_tools-1.1.21.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\linkit_tools\1.1.21&#xD;&#xA;runtime.vm.boardinfo.id=LinkIt_linkit_arm_linkit_one&#xD;&#xA;runtime.vm.boardinfo.name=LinkIt_linkit_arm_linkit_one&#xD;&#xA;runtime.vm.boardinfo.desc=LinkIt ONE&#xD;&#xA;runtime.vm.boardinfo.src_location=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21&#xD;&#xA;ide.hint=For use with Arduino.cc 1.6.2+ ide&#xD;&#xA;ide.location.key=Arduino16x&#xD;&#xA;ide.location.ide.winreg=Arduino 1.6.x Application&#xD;&#xA;ide.location.sketchbook.winreg=Arduino 1.6.x Sketchbook&#xD;&#xA;ide.location.sketchbook.preferences=sketchbook.path&#xD;&#xA;ide.default.revision_name=1.6.9&#xD;&#xA;ide.default.version=10609&#xD;&#xA;ide.default.package=arduino&#xD;&#xA;ide.default.platform=avr&#xD;&#xA;ide.multiplatform=true&#xD;&#xA;ide.includes=arduino.h&#xD;&#xA;ide.exe_name=arduino&#xD;&#xA;ide.platformswithoutpackage=false&#xD;&#xA;ide.includes.fallback=wprogram.h&#xD;&#xA;ide.extension=ino&#xD;&#xA;ide.extension.fallback=pde&#xD;&#xA;ide.versionGTEQ=160&#xD;&#xA;ide.exe=arduino.exe&#xD;&#xA;ide.hosts=atmel&#xD;&#xA;ide.url=http://arduino.cc/en/Main/Software&#xD;&#xA;ide.help.reference.path=reference\arduino.cc\en\Reference&#xD;&#xA;ide.help.reference.path2=reference\www.arduino.cc\en\Reference&#xD;&#xA;ide.help.reference.serial=reference\www.arduino.cc\en\Serial&#xD;&#xA;vm.debug=true&#xD;&#xA;software=ARDUINO&#xD;&#xA;ssh.user.name=root&#xD;&#xA;ssh.user.default.password=arduino&#xD;&#xA;ssh.host.wwwfiles.path=/www/sd&#xD;&#xA;build.working_directory={runtime.ide.path}&#xD;&#xA;ide.location.preferences.portable={runtime.ide.path}\portable&#xD;&#xA;ide.location.preferences=%VM_APPDATA_LOCAL%\arduino15\preferences.txt&#xD;&#xA;ide.location.preferences_fallback=%VM_APPDATA_ROAMING%\arduino15\preferences.txt&#xD;&#xA;ide.location.contributions=%VM_APPDATA_LOCAL%\arduino15&#xD;&#xA;ide.location.contributions_fallback=%VM_APPDATA_ROAMING%\arduino15&#xD;&#xA;ide.contributions.boards.allow=true&#xD;&#xA;ide.contributions.boards.ignore_unless_rewrite_found=true&#xD;&#xA;ide.contributions.libraries.allow=true&#xD;&#xA;ide.contributions.boards.support.urls.wiki=https://github.com/arduino/Arduino/wiki/Unofficial-list-of-3rd-party-boards-support-urls&#xD;&#xA;ide.create_platforms_from_boardsTXT.teensy=build.core&#xD;&#xA;ide.appid=arduino16x&#xD;&#xA;location.sketchbook=C:\Users\Benjamin\Documents\Arduino&#xD;&#xA;vm.core.include=arduino.h&#xD;&#xA;vm.boardsource.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21&#xD;&#xA;runtime.platform.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21&#xD;&#xA;vm.platformname.name=arm&#xD;&#xA;build.arch=ARM&#xD;&#xA;build.architecture=4.8.3-2014q1&#xD;&#xA;vmresolved.compiler.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\bin\&#xD;&#xA;vmresolved.tools.path=C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1&#xD;&#xA;" visualmicro.application.name="arduino16x" arduino.build.mcu="arm7tdmi-s" arduino.upload.protocol="mtk-one" arduino.build.f_cpu="84000000L" arduino.board.desc="LinkIt ONE" arduino.board.name="LinkIt_linkit_arm_linkit_one" arduino.upload.port="COM4" visualmicro.platform.name="arm" arduino.build.core="arduino" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
