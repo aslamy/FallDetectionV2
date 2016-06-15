@@ -28,6 +28,9 @@ ECGCapture::ECGCapture()
 	adas1000->setFRMCTL_PaceDetectionEnabled(false);
 	adas1000->setFRMCTL_RespirationMagnitudeEnabled(false);
 	adas1000->setFRMCTL_RespirationPhaseEnabled(false);
+	adas1000->setFRMCTL_CRCWordEnabled(false);
+	adas1000->setFRMCTL_GPIOWordEnabled(false);
+	adas1000->setFRMCTL_LeadOffStatusEnabled(false);
 	adas1000->setFRMCTL_ElectrodeFormat();
 	
 	adas1000->setCMREFCTL_ShieldDriveEnabled(true);

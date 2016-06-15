@@ -54,6 +54,9 @@
     <ClInclude Include="ECGCaptureFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TestTone150SinWave250HzCapture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ADAS1000.cpp">
@@ -87,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ECGCaptureFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone150SinWave250HzCapture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

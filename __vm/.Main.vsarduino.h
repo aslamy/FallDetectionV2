@@ -113,6 +113,8 @@ extern "C" void __cxa_pure_virtual() {;}
 #include <ECGCaptureFactory.h>
 #include <SPIdev.cpp>
 #include <SPIdev.h>
+#include <TestTone150SinWave250HzCapture.cpp>
+#include <TestTone150SinWave250HzCapture.h>
 #include <TestToneCapture.cpp>
 #include <TestToneCapture.h>
 #endif

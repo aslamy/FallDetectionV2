@@ -4,8 +4,9 @@
 #define _ECGCAPTUREFACTORY_h
 
 #include "ECGCapture.h"
+#include "ECG250HzCapture.h"
 
-class ECGCaptureFactoryClass
+class ECGCaptureFactory
 {
 
  public:

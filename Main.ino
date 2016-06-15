@@ -1,3 +1,4 @@
+#include "TestTone150SinWave250HzCapture.h"
 #include "ECGCaptureFactory.h"
 #include "ECG2000HzCapture.h"
 #include "ECG1000HzCapture.h"
@@ -21,7 +22,8 @@ void setup()
 	/* add setup code here */
 
 	Serial.begin(9600);
-	d = new ECG250HzCapture();
+	d = ECGCaptureFactory::createECGCapture();
+	
 
 
 	adas1000 = new ADAS1000();
@@ -34,7 +36,9 @@ void setup()
 	adas1000->setRegisterValue(ADAS1000_FRAMES, 0x000000);
 	*/
 
-	delay(2000);
+	delay(3000);
+
+	Serial.println(d->read());
 
 	
 }
@@ -45,13 +49,13 @@ void loop()
 	
 	//adas1000->readData(dataBuffer, 4, true);
 
-	uint32_t dat = adas1000->getRegisterValue(ADAS1000_ECGCTL);
+	uint32_t dat = adas1000->getRegisterValue(ADAS1000_FRMCTL);
 
 	Serial.println(dat);
 
 	
 
-	dat = adas1000->getRegisterValue(ADAS1000_ECGCTL);
+	dat = adas1000->getRegisterValue(ADAS1000_FRMCTL);
 
 	Serial.println(dat);
 	/*Serial.print(dataBuffer[0]);

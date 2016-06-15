@@ -4,7 +4,7 @@
 
 #include "ECGCaptureFactory.h"
 
-ECGCapture* ECGCaptureFactoryClass::createECGCapture()
+ECGCapture* ECGCaptureFactory::createECGCapture()
 {
-	return nullptr;
+	return new ECG250HzCapture();
 }

@@ -128,6 +128,7 @@
     <ClInclude Include="ECGCapture.h" />
     <ClInclude Include="ECGCaptureFactory.h" />
     <ClInclude Include="SPIdev.h" />
+    <ClInclude Include="TestTone150SinWave250HzCapture.h" />
     <ClInclude Include="TestToneCapture.h" />
     <ClInclude Include="__vm\.Main.vsarduino.h" />
   </ItemGroup>
@@ -142,6 +143,7 @@
     <ClCompile Include="ECGCapture.cpp" />
     <ClCompile Include="ECGCaptureFactory.cpp" />
     <ClCompile Include="SPIdev.cpp" />
+    <ClCompile Include="TestTone150SinWave250HzCapture.cpp" />
     <ClCompile Include="TestToneCapture.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
