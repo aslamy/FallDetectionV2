@@ -15,17 +15,14 @@ enum LeadFormat
 class ECGCapture : public DataCapture<double>
 {
 public:
-	ECGCapture(LeadFormat leadFormat);
-
+	ECGCapture();
 	double read();
-	LeadFormat getLeadFormat();
-	void setLeadFormat(LeadFormat leadFormat);
-	virtual ~ECGCapture();
-private:
-	LeadFormat leadFormat;
-	ADAS1000 adas1000;
+	void setLeadDataCapture(uint8_t lead);
 	
-
+	virtual ~ECGCapture();
+protected:
+	ADAS1000 *adas1000;
+	
 };
 
 

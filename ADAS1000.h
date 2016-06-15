@@ -893,16 +893,16 @@ public:
 	void setFRMCTL_ReadyRepeatEnabled(bool enabled);
 	void setFRMCTL_ElectrodeFormat(void);
 	void setFRMCTL_DigitalFormat(void);
-	void setFRMCTL_DataFormat(uint8_t format);
+
 	void setFRMCTL_SkipNoneFrame(void);
 	void setFRMCTL_Skip2thFrame(void);
 	void setFRMCTL_Skip4thFrame(void);
-	void setFRMCTL_SkipFrame(uint8_t data);
+
 	void setFRMCTL_DataRate128kHz(void);
 	void setFRMCTL_DataRate16kHz(void);
 	void setFRMCTL_DataRate2kHz(void);
 	void setFRMCTL_DataRate31Hz(void);
-	void setFRMCTL_DataRate(uint8_t rate);
+	
 
 	void setTESTTONE_LAEnabled(bool enabled);
 	void setTESTTONE_LLEnabled(bool enabled);
@@ -922,8 +922,8 @@ public:
 	void setECGCTL_ChannelRAEnabled(bool enabled);
 	void setECGCTL_ChannelV1Enabled(bool enabled);
 	void setECGCTL_ChannelV2Enabled(bool enabled);
-	void setECGCTL_ConfigSingleEndedInput(void);
-	void setECGCTL_ConfigDifferentialInput(void);
+	void setECGCTL_SingleEndedInput(void);
+	void setECGCTL_DifferentialInput(void);
 	void setECGCTL_Gain0(void);
 	void setECGCTL_Gain1(void);
 	void setECGCTL_Gain2(void);
@@ -978,7 +978,7 @@ private:
 	SPIdev spidev;
 	void writeBit(uint32_t regAddr, uint32_t bitStart, bool enabled);
 	void writeBits(uint32_t regAddr, uint32_t bitStart, uint32_t length, uint32_t data);
-	uint32_t log2(uint32_t number);
+	uint32_t log2(uint32_t number) const;
 };
 
 

@@ -24,9 +24,9 @@ void ADAS1000::setRegisterValue(uint32_t regVal)
 
 	uint8_t writeCommand[4] = { 0,0,0,0 };
 	writeCommand[0] = (((0x800000 + regVal) & 0xFF000000) >> 24);
-	writeCommand[1] = (uint32_t)((regVal & 0x00FF0000) >> 16);
-	writeCommand[2] = (uint32_t)((regVal & 0x0000FF00) >> 8);
-	writeCommand[3] = (uint32_t)((regVal & 0x000000FF) >> 0);
+	writeCommand[1] = ((regVal & 0x00FF0000) >> 16);
+	writeCommand[2] = ((regVal & 0x0000FF00) >> 8);
+	writeCommand[3] = ((regVal & 0x000000FF) >> 0);
 	spidev.write(writeCommand, 4);
 }
 
@@ -131,17 +131,6 @@ void ADAS1000::setFRMCTL_DigitalFormat(void)
 	writeBits(ADAS1000_FRMCTL, ADAS1000_FRMCTL_DATAFMT, ADAS1000_BITS_LENGTH_OF_ONE, ADAS1000_FRMCTL_DATAFMT_DIGITAL);
 }
 
-
-void ADAS1000::setFRMCTL_DataFormat(uint8_t format)
-{
-	writeBits(ADAS1000_FRMCTL, ADAS1000_FRMCTL_DATAFMT, ADAS1000_BITS_LENGTH_OF_ONE, format);
-}
-
-void ADAS1000::setFRMCTL_SkipFrame(uint8_t data)
-{
-	writeBits(ADAS1000_FRMCTL, ADAS1000_FRMCTL_SKIP, ADAS1000_BITS_LENGTH_OF_TWO, data);
-}
-
 void ADAS1000::setFRMCTL_SkipNoneFrame(void)
 {
 	writeBits(ADAS1000_FRMCTL, ADAS1000_FRMCTL_SKIP, ADAS1000_BITS_LENGTH_OF_TWO, ADAS1000_FRMCTL_SKIP_NONE_FRAME);
@@ -177,11 +166,6 @@ void ADAS1000::setFRMCTL_DataRate31Hz(void)
 	writeBits(ADAS1000_FRMCTL, ADAS1000_FRMCTL_DATARATE, ADAS1000_BITS_LENGTH_OF_TWO, ADAS1000_FRMCTL_FRMRATE_31_25HZ);
 }
 
-void ADAS1000::setFRMCTL_DataRate(uint8_t rate)
-{
-	writeBits(ADAS1000_FRMCTL, ADAS1000_FRMCTL_DATARATE, ADAS1000_BITS_LENGTH_OF_TWO, rate);
-}
-
 void ADAS1000::setTESTTONE_LAEnabled(bool enabled)
 {
 	writeBit(ADAS1000_TESTTONE, ADAS1000_TESTTONE_TONLA, enabled);
@@ -206,7 +190,6 @@ void ADAS1000::setTESTTONE_V2Enabled(bool enabled)
 {
 	writeBit(ADAS1000_TESTTONE, ADAS1000_TESTTONE_TONV2, enabled);
 }
-
 
 void ADAS1000::setTESTTONE_SineWave150Hz(void)
 {
@@ -268,12 +251,12 @@ void ADAS1000::setECGCTL_ChannelV2Enabled(bool enabled)
 	writeBit(ADAS1000_ECGCTL, ADAS1000_ECGCTL_V2EN, enabled);
 }
 
-void ADAS1000::setECGCTL_ConfigSingleEndedInput(void)
+void ADAS1000::setECGCTL_SingleEndedInput(void)
 {
 	writeBits(ADAS1000_ECGCTL, ADAS1000_ECGCTL_CHCONFIG, ADAS1000_BITS_LENGTH_OF_ONE, ADAS1000_ECGCTL_CHCONFIG_SINGLE_ENDED_INPUT);
 }
 
-void ADAS1000::setECGCTL_ConfigDifferentialInput(void)
+void ADAS1000::setECGCTL_DifferentialInput(void)
 {
 	writeBits(ADAS1000_ECGCTL, ADAS1000_ECGCTL_CHCONFIG, ADAS1000_BITS_LENGTH_OF_ONE, ADAS1000_ECGCTL_CHCONFIG_DIFFERENTIAL_INPUT);
 }
@@ -417,7 +400,7 @@ void ADAS1000::setCMREFCTL_CEContributesToRLDEnabled(bool enabled)
 
 void ADAS1000::setCMREFCTL_CommonElectrodeEnabled(bool enabled)
 {
-	writeBit(ADAS1000_CMREFCTL, ADAS1000_CMREFCTL_CERLD, enabled);
+	writeBit(ADAS1000_CMREFCTL, ADAS1000_CMREFCTL_CEREFEN, enabled);
 }
 
 void ADAS1000::setCMREFCTL_RLDOUTReferenceDrive(void)
@@ -467,7 +450,7 @@ void ADAS1000::setCMREFCTL_ExternalCommonMode(void)
 
 void ADAS1000::setCMREFCTL_RightLegDriveEnabled(bool enabled)
 {
-	writeBit(ADAS1000_CMREFCTL, ADAS1000_CMREFCTL_RLDSEL, enabled);
+	writeBit(ADAS1000_CMREFCTL, ADAS1000_CMREFCTL_RLD_EN, enabled);
 }
 
 void ADAS1000::setCMREFCTL_ShieldDriveEnabled(bool enabled)
@@ -524,7 +507,7 @@ void ADAS1000::writeBits(uint32_t regAddr, uint32_t bitStart, uint32_t length, u
 	setRegisterValue(regAddr, regValue);
 }
 
-uint32_t ADAS1000::log2(uint32_t number)
+uint32_t ADAS1000::log2(uint32_t number) const
 {
 	return (number > 1) ? 1 + log2(number / 2) : 0;
 }

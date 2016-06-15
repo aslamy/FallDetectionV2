@@ -75,7 +75,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries\Wire;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries\Wire\utility;C:\Program Files (x86)\Arduino\libraries;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\0val4ksk.c4t\Micro Platforms\default\debuggers;C:\Users\Benjamin\Documents\Arduino\libraries;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\cores\arduino;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\cores\arduino\avr;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\variants\linkit_one;C:\Users\Benjamin\Documents\Arduino\FallDetectionV2\Main;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk/include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk/include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\4.8.3-2014q1\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\arm-none-eabi\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>C:\Users\Benjamin\Documents\Arduino\Main\__vm\.Main.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ForcedIncludeFiles>C:\Users\Benjamin\Documents\Arduino\FallDetectionV2\Main\__vm\.Main.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PreprocessorDefinitions>printf=iprintf;F_CPU=84000000L;ARDUINO=10609;ARDUINO_MTK_ONE;ARDUINO_ARCH_ARM;__COMPILER_GCC__;__LINKIT_ONE__;__LINKIT_ONE_RELEASE__;USB_VID=0x0E8D;USB_PID=0x0023;USBCON;__cplusplus=201103L;GCC_VERSION=40803;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -121,8 +121,12 @@
     <ClInclude Include="ADAS1000.h" />
     <ClInclude Include="DataCapture.h" />
     <ClInclude Include="ECG.h" />
+    <ClInclude Include="ECG1000HzCapture.h" />
+    <ClInclude Include="ECG2000HzCapture.h" />
     <ClInclude Include="ECG250HzCapture.h" />
+    <ClInclude Include="ECG500HzCapture.h" />
     <ClInclude Include="ECGCapture.h" />
+    <ClInclude Include="ECGCaptureFactory.h" />
     <ClInclude Include="SPIdev.h" />
     <ClInclude Include="TestToneCapture.h" />
     <ClInclude Include="__vm\.Main.vsarduino.h" />
@@ -131,8 +135,12 @@
     <ClCompile Include="ADAS1000.cpp" />
     <ClCompile Include="DataCapture.cpp" />
     <ClCompile Include="ECG.cpp" />
+    <ClCompile Include="ECG1000HzCapture.cpp" />
+    <ClCompile Include="ECG2000HzCapture.cpp" />
     <ClCompile Include="ECG250HzCapture.cpp" />
+    <ClCompile Include="ECG500HzCapture.cpp" />
     <ClCompile Include="ECGCapture.cpp" />
+    <ClCompile Include="ECGCaptureFactory.cpp" />
     <ClCompile Include="SPIdev.cpp" />
     <ClCompile Include="TestToneCapture.cpp" />
   </ItemGroup>

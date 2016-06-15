@@ -10,7 +10,7 @@ class ECG250HzCapture : public ECGCapture
 
 public:
 
-	ECG250HzCapture(LeadFormat leadFormat);
+	ECG250HzCapture();
 	double read();
 private:
 

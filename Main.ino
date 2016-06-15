@@ -1,3 +1,7 @@
+#include "ECGCaptureFactory.h"
+#include "ECG2000HzCapture.h"
+#include "ECG1000HzCapture.h"
+#include "ECG500HzCapture.h"
 #include "ECG250HzCapture.h"
 #include "TestToneCapture.h"
 #include "DataCapture.h"
@@ -10,24 +14,25 @@
 
 ADAS1000 *adas1000;
 
-DataCapture<double> *d;
+ECGCapture *d;
 
 void setup()
 {
 	/* add setup code here */
 
 	Serial.begin(9600);
-
+	d = new ECG250HzCapture();
 
 
 	adas1000 = new ADAS1000();
 
-	adas1000->setRegisterValue(ADAS1000_CMREFCTL, 0x00000B);
+/*	adas1000->setRegisterValue(ADAS1000_CMREFCTL, 0x00000B);
 	adas1000->setRegisterValue(ADAS1000_TESTTONE, 0xF8001D);
 	//adas1000->setRegisterValue(ADAS1000_FILTCTL, 0x000008);
 	//adas1000->setRegisterValue(ADAS1000_ECGCTL, 0xF800AE);
 	adas1000->setRegisterValue(ADAS1000_FRMCTL,0x7FFE58);
 	adas1000->setRegisterValue(ADAS1000_FRAMES, 0x000000);
+	*/
 
 	delay(2000);
 
@@ -40,15 +45,13 @@ void loop()
 	
 	//adas1000->readData(dataBuffer, 4, true);
 
-	uint32_t dat = adas1000->getRegisterValue(ADAS1000_FILTCTL);
+	uint32_t dat = adas1000->getRegisterValue(ADAS1000_ECGCTL);
 
 	Serial.println(dat);
-	
-	adas1000->setFILTCTL_2kHNotchFilterEnabled(true);
-	adas1000->setFILTCTL_2kHNotchFilterForSPIMasterEnabled(true);
-	adas1000->setFILTCTL_450HzLowPassFilter();
 
-	dat = adas1000->getRegisterValue(ADAS1000_FILTCTL);
+	
+
+	dat = adas1000->getRegisterValue(ADAS1000_ECGCTL);
 
 	Serial.println(dat);
 	/*Serial.print(dataBuffer[0]);
