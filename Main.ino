@@ -10,7 +10,7 @@
 
 ADAS1000 *adas1000;
 
-DataCapture<double> *de;
+DataCapture<double> *d;
 
 void setup()
 {
@@ -24,12 +24,12 @@ void setup()
 
 	adas1000->setRegisterValue(ADAS1000_CMREFCTL, 0x00000B);
 	adas1000->setRegisterValue(ADAS1000_TESTTONE, 0xF8001D);
-	adas1000->setRegisterValue(ADAS1000_FILTCTL, 0x000008);
+	//adas1000->setRegisterValue(ADAS1000_FILTCTL, 0x000008);
 	//adas1000->setRegisterValue(ADAS1000_ECGCTL, 0xF800AE);
 	adas1000->setRegisterValue(ADAS1000_FRMCTL,0x7FFE58);
 	adas1000->setRegisterValue(ADAS1000_FRAMES, 0x000000);
 
-	delay(5000);
+	delay(2000);
 
 	
 }
@@ -40,15 +40,15 @@ void loop()
 	
 	//adas1000->readData(dataBuffer, 4, true);
 
-	uint32_t dat = adas1000->getRegisterValue(ADAS1000_ECGCTL);
+	uint32_t dat = adas1000->getRegisterValue(ADAS1000_FILTCTL);
 
 	Serial.println(dat);
 	
-	adas1000->setECGCTL_Gain3();
+	adas1000->setFILTCTL_2kHNotchFilterEnabled(true);
+	adas1000->setFILTCTL_2kHNotchFilterForSPIMasterEnabled(true);
+	adas1000->setFILTCTL_450HzLowPassFilter();
 
-
-
-	dat = adas1000->getRegisterValue(ADAS1000_ECGCTL);
+	dat = adas1000->getRegisterValue(ADAS1000_FILTCTL);
 
 	Serial.println(dat);
 	/*Serial.print(dataBuffer[0]);

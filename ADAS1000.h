@@ -229,30 +229,30 @@ automatically gets enabled. 0 = EXT_RESP_LL, 1 = EXT_RESP _LA */
 #define ADAS1000_CMREFCTL_V2CM		(1ul << 19)	/*	The Common Mode is the average of the selected electrodes. When a 	 */
 /*	single electrode is selected, the Common Mode is the signal level of */
 /*	that electrode alone.												 */
-/*		0 = does not contribute to the common mode						 */
-/*		1 = contributes to the common mode 								 */
+/*		0 = does not Contributes to the common mode						 */
+/*		1 = Contributess to the common mode 								 */
 #define ADAS1000_CMREFCTL_LARLD		(1ul << 14)	/*	RLD Summing Junction
-0 = does not contribute to RLD input
-1   = contributes to RLD input */
+0 = does not Contributes to RLD input
+1   = Contributess to RLD input */
 #define ADAS1000_CMREFCTL_LLRLD		(1ul << 13)	/*	RLD Summing Junction
-0 = does not contribute to RLD input
-1   = contributes to RLD input */
+0 = does not Contributes to RLD input
+1   = Contributess to RLD input */
 #define ADAS1000_CMREFCTL_RARLD		(1ul << 12)	/*	RLD Summing Junction
-0 = does not contribute to RLD input
-1   = contributes to RLD input */
+0 = does not Contributes to RLD input
+1   = Contributess to RLD input */
 #define ADAS1000_CMREFCTL_V1RLD		(1ul << 11)	/*	RLD Summing Junction
-0 = does not contribute to RLD input
-1   = contributes to RLD input */
+0 = does not Contributes to RLD input
+1   = Contributess to RLD input */
 #define ADAS1000_CMREFCTL_V2RLD		(1ul << 10)	/*	RLD Summing Junction
-0 = does not contribute to RLD input
-1   = contributes to RLD input */
+0 = does not Contributes to RLD input
+1   = Contributess to RLD input */
 #define ADAS1000_CMREFCTL_CERLD		(1ul << 9)	/*	RLD Summing Junction
-0 = does not contribute to RLD input
-1   = contributes to RLD input */
+0 = does not Contributes to RLD input
+1   = Contributess to RLD input */
 #define ADAS1000_CMREFCTL_CEREFEN	(1ul << 8)	/*	Common Electrode Reference
 0 = Common Electrode disabled
 1   = Common Electrode enabled */
-#define ADAS1000_CMREFCTL_RLDSEL	(1ul << 4)	/*	Select electrode for reference drive
+#define ADAS1000_CMREFCTL_RLDSEL	(1ul << 7)	/*	Select electrode for reference drive
 0000 = RL, 0001 = LA, 0010 = LL,
 0011 = RA, 0100 = V1, 0101 = V2,
 0110 to 1111 = Reserved */
@@ -273,6 +273,16 @@ if external common mode is selected.
 1  = Shield Drive Enabled */
 
 #define ADAS1000_CMREFCTL_RLDSEL_MASK (0x0000000Ful << 4)
+
+#define ADAS1000_CMREFCTL_RLDSEL_RLD_OUT	0b0000
+#define ADAS1000_CMREFCTL_RLDSEL_LA			0b0001
+#define ADAS1000_CMREFCTL_RLDSEL_LL			0b0010
+#define ADAS1000_CMREFCTL_RLDSEL_RA			0b0011
+#define ADAS1000_CMREFCTL_RLDSEL_V1			0b0100
+#define ADAS1000_CMREFCTL_RLDSEL_V2			0b0101
+
+#define ADAS1000_CMREFCTL_EXTCM_Internal	0b00
+#define ADAS1000_CMREFCTL_EXTCM_External	0b01
 
 /******************************************************************************/
 /* GPIO Control Register 													  */
@@ -497,13 +507,17 @@ data is ready.
 #define ADAS1000_FILTCTL_N2KBP	(1ul << 4)	/*	2kHz notch bypass
 0 = notch filter present
 1 = notch filter bypassed */
-#define ADAS1000_FILTCTL_LPF	(1ul << 2)	/*	00 = 40Hz
+#define ADAS1000_FILTCTL_LPF	(1ul << 3)	/*	00 = 40Hz
 01 = 150Hz
 10 = 250 Hz
 11 = 450Hz */
 
 #define ADAS1000_FILTCTL_LPF_MASK	(0x00000003ul << 2)
 
+#define ADAS1000_FILTCTL_LPF_40HZ	0b00
+#define ADAS1000_FILTCTL_LPF_150HZ	0b01
+#define ADAS1000_FILTCTL_LPF_250HZ	0b10
+#define ADAS1000_FILTCTL_LPF_450HZ	0b11
 /******************************************************************************/
 /* Leads off Upper Threshold Register										  */
 /******************************************************************************/
@@ -850,8 +864,10 @@ the OR of all DC & AC leads off flags.
 
 
 
-#define  ADAS1000_LENGTH_OF_ONE					0x01
-#define  ADAS1000_LENGTH_OF_TWO					0x02
+#define  ADAS1000_BITS_LENGTH_OF_ONE				0x01
+#define  ADAS1000_BITS_LENGTH_OF_TWO				0x02
+#define  ADAS1000_BITS_LENGTH_OF_THREE				0x03
+#define  ADAS1000_BITS_LENGTH_OF_FOUR				0x04
 
 
 class ADAS1000
@@ -866,6 +882,8 @@ public:
 	void setFRMCTL_DataLeadIEnabled(bool enabled);
 	void setFRMCTL_DataLeadIIEnabled(bool enabled);
 	void setFRMCTL_DataLeadIIIEnabled(bool enabled);
+	void setFRMCTL_DataLeadV1Enabled(bool enabled);
+	void setFRMCTL_DataLeadV2Enabled(bool enabled);
 	void setFRMCTL_PaceDetectionEnabled(bool enabled);
 	void setFRMCTL_RespirationMagnitudeEnabled(bool enabled);
 	void setFRMCTL_RespirationPhaseEnabled(bool enabled);
@@ -889,6 +907,8 @@ public:
 	void setTESTTONE_LAEnabled(bool enabled);
 	void setTESTTONE_LLEnabled(bool enabled);
 	void setTESTTONE_RAEnabled(bool enabled);
+	void setTESTTONE_V1Enabled(bool enabled);
+	void setTESTTONE_V2Enabled(bool enabled);
 	void setTESTTONE_SineWave150Hz(void);
 	void setTESTTONE_SineWave10Hz(void);
 	void setTESTTONE_SquareWave1Hz(void);
@@ -921,6 +941,37 @@ public:
 	void setECGCTL_PowerOnEnabled(bool enabled);
 	void setECGCTL_SoftwareReset(void);
 
+	void setCMREFCTL_LAContributesToCommonModeEnabled(bool enabled);
+	void setCMREFCTL_LLContributesToCommonModeEnabled(bool enabled);
+	void setCMREFCTL_RAContributesToCommonModeEnabled(bool enabled);
+	void setCMREFCTL_V1ContributesToCommonModeEnabled(bool enabled);
+	void setCMREFCTL_V2ContributesToCommonModeEnabled(bool enabled);
+	void setCMREFCTL_LAContributesToRLDEnabled(bool enabled);
+	void setCMREFCTL_LLContributesToRLDEnabled(bool enabled);
+	void setCMREFCTL_RAContributesToRLDEnabled(bool enabled);
+	void setCMREFCTL_V1ContributesToRLDEnabled(bool enabled);
+	void setCMREFCTL_V2ContributesToRLDEnabled(bool enabled);
+	void setCMREFCTL_CEContributesToRLDEnabled(bool enabled);
+	void setCMREFCTL_CommonElectrodeEnabled(bool enabled);
+	void setCMREFCTL_RLDOUTReferenceDrive(void);
+	void setCMREFCTL_LAReferenceDrive(void);
+	void setCMREFCTL_LLReferenceDrive(void);
+	void setCMREFCTL_RAReferenceDrive(void);
+	void setCMREFCTL_V1ReferenceDrive(void);
+	void setCMREFCTL_V2ReferenceDrive(void);
+	void setCMREFCTL_CommonModeIsDrivenOutEnabled(bool enabled);
+	void setCMREFCTL_InternalCommonMode(void);
+	void setCMREFCTL_ExternalCommonMode(void);
+	void setCMREFCTL_RightLegDriveEnabled(bool enabled);
+	void setCMREFCTL_ShieldDriveEnabled(bool enabled);
+
+
+	void setFILTCTL_2kHNotchFilterForSPIMasterEnabled(bool enabled);
+	void setFILTCTL_2kHNotchFilterEnabled(bool enabled);
+	void setFILTCTL_40HzLowPassFilter(void);
+	void setFILTCTL_150HzLowPassFilter(void);
+	void setFILTCTL_250HzLowPassFilter(void);
+	void setFILTCTL_450HzLowPassFilter(void);
 
 	virtual ~ADAS1000();
 private:
