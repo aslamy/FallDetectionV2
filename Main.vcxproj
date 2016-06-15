@@ -127,7 +127,10 @@
     <ClInclude Include="ECG500HzCapture.h" />
     <ClInclude Include="ECGCapture.h" />
     <ClInclude Include="ECGCaptureFactory.h" />
+    <ClInclude Include="HashTable.h" />
+    <ClInclude Include="LinkedList.h" />
     <ClInclude Include="SPIdev.h" />
+    <ClInclude Include="Test.h" />
     <ClInclude Include="TestTone150SinWave250HzCapture.h" />
     <ClInclude Include="TestToneCapture.h" />
     <ClInclude Include="__vm\.Main.vsarduino.h" />
@@ -142,7 +145,10 @@
     <ClCompile Include="ECG500HzCapture.cpp" />
     <ClCompile Include="ECGCapture.cpp" />
     <ClCompile Include="ECGCaptureFactory.cpp" />
+    <ClCompile Include="HashTable.cpp" />
+    <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="SPIdev.cpp" />
+    <ClCompile Include="Test.cpp" />
     <ClCompile Include="TestTone150SinWave250HzCapture.cpp" />
     <ClCompile Include="TestToneCapture.cpp" />
   </ItemGroup>

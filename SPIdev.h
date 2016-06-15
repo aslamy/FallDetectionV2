@@ -3,7 +3,7 @@
 #ifndef _SPI_h
 #define _SPI_h
 
-#include "arduino.h"
+#include <arduino.h>
 #include <SPI.h>
 
 class SPIdev
