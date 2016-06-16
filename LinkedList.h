@@ -6,7 +6,7 @@
 #include <stddef.h>
 
 template<class T>
-struct  Node
+struct Node
 {
 	T data;
 	Node<T> *next;
@@ -165,13 +165,14 @@ Node<T>* LinkedList<T>::getNode(int index)
 		}
 		return current;
 	}
-	return T();
+	return NULL;
 }
 
 template<class T>
 LinkedList<T>::~LinkedList()
 {
 	Node<T> *tmp;
+	
 	while(root)
 	{
 		tmp = root;
@@ -179,7 +180,7 @@ LinkedList<T>::~LinkedList()
 		delete tmp;
 	}
 	_size = 0;
-	last = NULL;
+	delete root;
 }
 #endif
 

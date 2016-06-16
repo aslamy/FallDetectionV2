@@ -111,14 +111,13 @@ extern "C" void __cxa_pure_virtual() {;}
 #include <ECGCapture.h>
 #include <ECGCaptureFactory.cpp>
 #include <ECGCaptureFactory.h>
-#include <HashTable.cpp>
-#include <HashTable.h>
+#include <HashMap.h>
 #include <LinkedList.cpp>
 #include <LinkedList.h>
+#include <LinkitOneFlashFileReader.cpp>
+#include <LinkitOneFlashFileReader.h>
 #include <SPIdev.cpp>
 #include <SPIdev.h>
-#include <Test.cpp>
-#include <Test.h>
 #include <TestTone150SinWave250HzCapture.cpp>
 #include <TestTone150SinWave250HzCapture.h>
 #include <TestToneCapture.cpp>

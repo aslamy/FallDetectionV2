@@ -57,13 +57,13 @@
     <ClInclude Include="TestTone150SinWave250HzCapture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HashTable.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Test.h">
+    <ClInclude Include="HashMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkitOneFlashFileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -104,13 +104,10 @@
     <ClCompile Include="TestTone150SinWave250HzCapture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HashTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Test.cpp">
+    <ClCompile Include="LinkitOneFlashFileReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
