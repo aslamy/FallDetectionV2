@@ -5,36 +5,33 @@
 
 #include <stddef.h>
 
-template<class T>
+template <class T>
 struct Node
 {
 	T data;
-	Node<T> *next;
+	Node<T>* next;
 };
 
 template <class T>
 class LinkedList
 {
+public:
 
- public:
-
-	 LinkedList();
-	 bool add(T data);
-	 T get(int index);
-	 T pop(void);
-	 T shift(void);
-	 int size(void) const;
-	 T remove(int index);
-	 ~LinkedList();
+	LinkedList();
+	bool add(T data);
+	T get(int index);
+	T pop(void);
+	T shift(void);
+	int size(void) const;
+	T remove(int index);
+	~LinkedList();
 
 
 protected:
 	int _size;
-	Node<T> *root;
-	Node<T> *last;
-	Node<T> * getNode(int index);
-
-
+	Node<T>* root;
+	Node<T>* last;
+	Node<T>* getNode(int index);
 };
 
 template <class T>
@@ -45,10 +42,10 @@ LinkedList<T>::LinkedList()
 	this->last = NULL;
 }
 
-template<class T>
+template <class T>
 bool LinkedList<T>::add(T data)
 {
-	Node<T> *tmp = new Node<T>();
+	Node<T>* tmp = new Node<T>();
 	tmp->data = data;
 	tmp->next = NULL;
 
@@ -67,21 +64,21 @@ bool LinkedList<T>::add(T data)
 	return true;
 }
 
-template<class T>
+template <class T>
 T LinkedList<T>::get(int index)
 {
-	Node<T> *searchNode = getNode(index);
+	Node<T>* searchNode = getNode(index);
 	return (searchNode) ? searchNode->data : T();
 }
 
 template <class T>
 T LinkedList<T>::pop()
 {
-	if(_size <= 0)
+	if (_size <= 0)
 	{
 		return T();
 	}
-	if(_size == 1)
+	if (_size == 1)
 	{
 		T data = root->data;
 		root = NULL;
@@ -89,7 +86,7 @@ T LinkedList<T>::pop()
 		_size = 0;
 		return data;
 	}
-	Node<T> *tmp = getNode(_size - 2);
+	Node<T>* tmp = getNode(_size - 2);
 	T data = tmp->next->data;
 	delete(tmp->next);
 	tmp->next = NULL;
@@ -106,18 +103,17 @@ T LinkedList<T>::shift()
 		return T();
 	}
 
-	if(_size == 1)
+	if (_size == 1)
 	{
 		return pop();
 	}
 
-	Node<T> *_next = root->next;
+	Node<T>* _next = root->next;
 	T data = root->data;
 	delete(root);
 	root = _next;
 	_size--;
 	return data;
-
 }
 
 template <class T>
@@ -141,8 +137,8 @@ T LinkedList<T>::remove(int index)
 		return pop();
 	}
 
-	Node<T> *searchNode = getNode(index - 1);
-	Node<T> *toDelete = searchNode->next;
+	Node<T>* searchNode = getNode(index - 1);
+	Node<T>* toDelete = searchNode->next;
 	searchNode->next = searchNode->next->next;
 	T data = toDelete->data;
 	delete toDelete;
@@ -153,11 +149,10 @@ T LinkedList<T>::remove(int index)
 template <class T>
 Node<T>* LinkedList<T>::getNode(int index)
 {
-	
 	if (root && index <= _size - 1)
 	{
 		int start = 0;
-		Node<T> *current = root;
+		Node<T>* current = root;
 		while (index > start)
 		{
 			current = current->next;
@@ -168,12 +163,12 @@ Node<T>* LinkedList<T>::getNode(int index)
 	return NULL;
 }
 
-template<class T>
+template <class T>
 LinkedList<T>::~LinkedList()
 {
-	Node<T> *tmp;
-	
-	while(root)
+	Node<T>* tmp;
+
+	while (root)
 	{
 		tmp = root;
 		root = root->next;
@@ -183,4 +178,3 @@ LinkedList<T>::~LinkedList()
 	delete root;
 }
 #endif
-

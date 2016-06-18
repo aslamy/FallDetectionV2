@@ -2,16 +2,15 @@
 
 #ifndef _TESTTONE150SINWAVE250HZCAPTURE_h
 #define _TESTTONE150SINWAVE250HZCAPTURE_h
+#include "ECG250HzCapture.h"
 
-class TestTone150SinWave250HzCapture
+class TestTone150SinWave250HzCapture :public ECG250HzCapture
 {
- protected:
+protected:
 
 
- public:
-
+public:
 };
 
 
 #endif
-

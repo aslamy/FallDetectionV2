@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ECG">
+      <UniqueIdentifier>{ffd57242-c77e-421f-ab5f-a2138a5aff5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ECG">
+      <UniqueIdentifier>{f7321d0d-8e67-408a-bc2c-33ffff9ca678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Main.ino" />
@@ -21,40 +27,7 @@
     <ClInclude Include="__vm\.Main.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ADAS1000.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECGCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECG.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SPIdev.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DataCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TestToneCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECG250HzCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECG500HzCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECG1000HzCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECG2000HzCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECGCaptureFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TestTone150SinWave250HzCapture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LinkedList.h">
@@ -66,49 +39,145 @@
     <ClInclude Include="LinkitOneFlashFileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SharedPreferences.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestToneSquareWave2000HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestToneSquareWave1000HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestToneSquareWave500HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestToneSquareWave250HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone150SinWave2000HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone150SinWave1000HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone150SinWave500HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone150SinWave250HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone10SinWave2000HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone10SinWave1000HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone10SinWave500HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone10SinWave250HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="SPIdev.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG2000HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG1000HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG500HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG250HzCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="ADAS1000.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="ECGCapture.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
+    <ClInclude Include="ECGCaptureFactory.h">
+      <Filter>ECG</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ADAS1000.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ECGCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ECG.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SPIdev.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DataCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestToneCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ECG250HzCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ECG500HzCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ECG1000HzCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ECG2000HzCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ECGCaptureFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestTone150SinWave250HzCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LinkitOneFlashFileReader.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedPreferences.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ADAS1000.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG250HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG500HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG1000HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG2000HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="ECGCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="ECGCaptureFactory.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="SPIdev.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone10SinWave250HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone10SinWave500HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone10SinWave1000HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone10SinWave2000HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone150SinWave250HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone150SinWave500HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone150SinWave1000HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone150SinWave2000HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestToneSquareWave250HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestToneSquareWave500HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestToneSquareWave1000HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
+    </ClCompile>
+    <ClCompile Include="TestToneSquareWave2000HzCapture.cpp">
+      <Filter>Source Files\ECG</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

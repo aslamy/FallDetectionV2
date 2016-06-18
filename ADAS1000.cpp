@@ -4,14 +4,13 @@
 
 #include "ADAS1000.h"
 
-ADAS1000::ADAS1000() {
-
+ADAS1000::ADAS1000()
+{
 }
 
 void ADAS1000::setRegisterValue(uint8_t regAddr, uint32_t regVal)
 {
-
-	uint8_t writeCommand[4] = { 0,0,0,0 };
+	uint8_t writeCommand[4] = {0,0,0,0};
 	writeCommand[0] = 0x80 + regAddr;
 	writeCommand[1] = ((regVal & 0xFF0000) >> 16);
 	writeCommand[2] = ((regVal & 0x00FF00) >> 8);
@@ -21,8 +20,7 @@ void ADAS1000::setRegisterValue(uint8_t regAddr, uint32_t regVal)
 
 void ADAS1000::setRegisterValue(uint32_t regVal)
 {
-
-	uint8_t writeCommand[4] = { 0,0,0,0 };
+	uint8_t writeCommand[4] = {0,0,0,0};
 	writeCommand[0] = (((0x800000 + regVal) & 0xFF000000) >> 24);
 	writeCommand[1] = ((regVal & 0x00FF0000) >> 16);
 	writeCommand[2] = ((regVal & 0x0000FF00) >> 8);
@@ -30,23 +28,26 @@ void ADAS1000::setRegisterValue(uint32_t regVal)
 	spidev.write(writeCommand, 4);
 }
 
-void ADAS1000::readData(unsigned char * dataBuffer, int lenght, bool waitForDRDY) {
-	unsigned char readCommand[4] = { 0,0,0,0 };
+void ADAS1000::readData(unsigned char* dataBuffer, int lenght, bool waitForDRDY)
+{
+	unsigned char readCommand[4] = {0,0,0,0};
 	bool ready = true;
 
-	if (waitForDRDY) {
-		while (ready) {
-			for(uint8_t i = 0;i<lenght;i++)
+	if (waitForDRDY)
+	{
+		while (ready)
+		{
+			for (uint8_t i = 0; i < lenght; i++)
 			{
 				dataBuffer[i] = spidev.read(readCommand[i]);
 			}
 
 			ready = dataBuffer[0] & 0x40;
-
 		}
 	}
-	else {
-		for (uint8_t i = 0; i<lenght; i++)
+	else
+	{
+		for (uint8_t i = 0; i < lenght; i++)
 		{
 			dataBuffer[i] = spidev.read(readCommand[i]);
 		}
@@ -55,12 +56,12 @@ void ADAS1000::readData(unsigned char * dataBuffer, int lenght, bool waitForDRDY
 
 uint32_t ADAS1000::getRegisterValue(uint8_t regAddr)
 {
-	uint8_t readCommand[4] = { 0,0,0,0 };
-	uint8_t readData[4] = { 0, 0, 0, 0 };
+	uint8_t readCommand[4] = {0,0,0,0};
+	uint8_t readData[4] = {0, 0, 0, 0};
 	readCommand[0] = regAddr;
 	spidev.write(readCommand, 4);
 	spidev.read(readData, 4);
-	return 
+	return
 		((uint32_t)readData[1] << 16) +
 		((uint32_t)readData[2] << 8) +
 		((uint32_t)readData[3] << 0);
@@ -70,22 +71,27 @@ void ADAS1000::setFRMCTL_DataLeadIEnabled(bool enabled)
 {
 	writeBit(ADAS1000_FRMCTL, ADAS1000_FRMCTL_LEAD_I_LADIS, !enabled);
 }
+
 void ADAS1000::setFRMCTL_DataLeadIIEnabled(bool enabled)
 {
 	writeBit(ADAS1000_FRMCTL, ADAS1000_FRMCTL_LEAD_II_LLDIS, !enabled);
 }
+
 void ADAS1000::setFRMCTL_DataLeadIIIEnabled(bool enabled)
 {
 	writeBit(ADAS1000_FRMCTL, ADAS1000_FRMCTL_LEAD_III_RADIS, !enabled);
 }
+
 void ADAS1000::setFRMCTL_DataLeadV1Enabled(bool enabled)
 {
 	writeBit(ADAS1000_FRMCTL, ADAS1000_FRMCTL_V1DIS, !enabled);
 }
+
 void ADAS1000::setFRMCTL_DataLeadV2Enabled(bool enabled)
 {
 	writeBit(ADAS1000_FRMCTL, ADAS1000_FRMCTL_V2DIS, !enabled);
 }
+
 void ADAS1000::setFRMCTL_PaceDetectionEnabled(bool enabled)
 {
 	writeBit(ADAS1000_FRMCTL, ADAS1000_FRMCTL_PACEDIS, !enabled);
@@ -324,7 +330,6 @@ void ADAS1000::setECGCTL_LowPower1MSPS(void)
 void ADAS1000::setECGCTL_HighPerformance2MSPS(void)
 {
 	writeBits(ADAS1000_ECGCTL, ADAS1000_ECGCTL_HP, ADAS1000_BITS_LENGTH_OF_ONE, ADAS1000_ECGCTL_HP_2MSPS);
-
 }
 
 void ADAS1000::setECGCTL_ADCConversionEnabled(bool enabled)

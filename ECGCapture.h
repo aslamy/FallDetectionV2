@@ -12,17 +12,18 @@ enum LeadFormat
 	DIGITAL = 1
 };
 
-class ECGCapture : public DataCapture<double>
+class ECGCapture : public DataCapture<double,double>
 {
 public:
 	ECGCapture();
-	double read();
-	void setLeadDataCapture(uint8_t lead);
-	
+	double read(double);
+	void setLeadIEnabled(void);
+	void setLeadIIEnabled(void);
+	void setLeadIIIEnabled(void);
+
 	virtual ~ECGCapture();
 protected:
-	ADAS1000 *adas1000;
-	
+	ADAS1000* adas1000;
 };
 
 

@@ -114,9 +114,6 @@ command to complete the reset: 0 = NOP,  1 = Reset */
 #define ADAS1000_ECGCTL_HP_2MSPS						0b01
 
 
-
-
-
 /******************************************************************************/
 /* Leads off Control Register 												  */
 /******************************************************************************/
@@ -863,7 +860,6 @@ the OR of all DC & AC leads off flags.
 1 = ADC out of range */
 
 
-
 #define  ADAS1000_BITS_LENGTH_OF_ONE				0x01
 #define  ADAS1000_BITS_LENGTH_OF_TWO				0x02
 #define  ADAS1000_BITS_LENGTH_OF_THREE				0x03
@@ -876,7 +872,7 @@ public:
 	ADAS1000();
 	void setRegisterValue(uint8_t regAddr, uint32_t regVal);
 	void setRegisterValue(uint32_t regVal);
-	void readData(unsigned char * dataBuffer, int lenght, bool waitForDRDY);
+	void readData(unsigned char* dataBuffer, int lenght, bool waitForDRDY);
 	uint32_t getRegisterValue(uint8_t regAddr);
 
 	void setFRMCTL_DataLeadIEnabled(bool enabled);
@@ -902,7 +898,7 @@ public:
 	void setFRMCTL_DataRate16kHz(void);
 	void setFRMCTL_DataRate2kHz(void);
 	void setFRMCTL_DataRate31Hz(void);
-	
+
 
 	void setTESTTONE_LAEnabled(bool enabled);
 	void setTESTTONE_LLEnabled(bool enabled);

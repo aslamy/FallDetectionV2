@@ -8,17 +8,15 @@
 
 class LinkitOneFlashFileReader
 {
- protected:
-	 LFlashClass flash;
-	 String fileName;
+protected:
+	LFlashClass flash;
+	String fileName;
 
- public:
-	 LinkitOneFlashFileReader(String fileName);
-	 String read(void);
-	 bool write(String text);
-	
+public:
+	LinkitOneFlashFileReader(String fileName);
+	String read(void);
+	bool write(String text);
 };
 
 
 #endif
-

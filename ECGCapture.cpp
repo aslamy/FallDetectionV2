@@ -32,7 +32,7 @@ ECGCapture::ECGCapture()
 	adas1000->setFRMCTL_GPIOWordEnabled(false);
 	adas1000->setFRMCTL_LeadOffStatusEnabled(false);
 	adas1000->setFRMCTL_ElectrodeFormat();
-	
+
 	adas1000->setCMREFCTL_ShieldDriveEnabled(true);
 	adas1000->setCMREFCTL_RightLegDriveEnabled(true);
 	adas1000->setCMREFCTL_CommonModeIsDrivenOutEnabled(true);
@@ -41,13 +41,30 @@ ECGCapture::ECGCapture()
 	adas1000->setFILTCTL_2kHNotchFilterEnabled(true);
 }
 
-double ECGCapture::read()
+double ECGCapture::read(double s)
 {
 	return 333.33;
 }
 
-void ECGCapture::setLeadDataCapture(uint8_t lead)
+void ECGCapture::setLeadIEnabled(void)
 {
+	adas1000->setFRMCTL_DataLeadIEnabled(true);
+	adas1000->setFRMCTL_DataLeadIIEnabled(false);
+	adas1000->setFRMCTL_DataLeadIIIEnabled(false);
+}
+
+void ECGCapture::setLeadIIEnabled(void)
+{
+	adas1000->setFRMCTL_DataLeadIEnabled(false);
+	adas1000->setFRMCTL_DataLeadIIEnabled(true);
+	adas1000->setFRMCTL_DataLeadIIIEnabled(false);
+}
+
+void ECGCapture::setLeadIIIEnabled(void)
+{
+	adas1000->setFRMCTL_DataLeadIEnabled(false);
+	adas1000->setFRMCTL_DataLeadIIEnabled(false);
+	adas1000->setFRMCTL_DataLeadIIIEnabled(true);
 }
 
 ECGCapture::~ECGCapture()

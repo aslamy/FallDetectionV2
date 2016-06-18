@@ -3,14 +3,16 @@
 #ifndef _DATACAPTURE_h
 #define _DATACAPTURE_h
 
-template <class T>
+template <class T,class V>
 class DataCapture
 {
 public:
-	virtual ~DataCapture(){}
-	virtual T read(void) = 0;
+	virtual ~DataCapture()
+	{
+	}
+
+	virtual T read(V) = 0;
 };
 
 
 #endif
-

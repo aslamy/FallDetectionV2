@@ -6,9 +6,8 @@
 #include "LinkedList.h"
 
 
-
-template <class  K, class  V>
-struct  Entry
+template <class K, class V>
+struct Entry
 {
 	K key;
 	V value;
@@ -17,24 +16,21 @@ struct  Entry
 template <class K, class V>
 class HashMap
 {
-
- public:
-	 HashMap();
-	 ~HashMap();
-	 V put(K key,V value);
-	 V get(K key);
-	 bool remove(K key);
-
-
-protected:	
-
-	LinkedList<Entry<K,V> > *list;
+public:
+	HashMap();
+	~HashMap();
+	V put(K key, V value);
+	V get(K key);
+	bool remove(K key);
 
 
+protected:
+
+	LinkedList<Entry<K, V> >* list;
 };
 
-template <class K, class  V>
-HashMap<K,V>::HashMap()
+template <class K, class V>
+HashMap<K, V>::HashMap()
 {
 	list = new LinkedList<Entry<K, V> >();
 }
@@ -49,7 +45,7 @@ template <class K, class V>
 V HashMap<K, V>::put(K key, V value)
 {
 	//remove(key);
-	Entry<K, V> *entry = new Entry<K, V>();
+	Entry<K, V>* entry = new Entry<K, V>();
 	entry->key = key;
 	entry->value = value;
 	list->add(*entry);
@@ -59,9 +55,9 @@ V HashMap<K, V>::put(K key, V value)
 template <class K, class V>
 V HashMap<K, V>::get(K key)
 {
-	for(int i = 0; i< list->size();i++)
+	for (int i = 0; i < list->size(); i++)
 	{
-		if(list->get(i).key == key)
+		if (list->get(i).key == key)
 		{
 			return list->get(i).value;
 		}
@@ -72,7 +68,7 @@ V HashMap<K, V>::get(K key)
 template <class K, class V>
 bool HashMap<K, V>::remove(K key)
 {
-	for (int i = 0; i< list->size(); i++)
+	for (int i = 0; i < list->size(); i++)
 	{
 		if (list->get(i).key == key)
 		{
@@ -83,4 +79,3 @@ bool HashMap<K, V>::remove(K key)
 	return false;
 }
 #endif
-

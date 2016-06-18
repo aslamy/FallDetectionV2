@@ -18,7 +18,7 @@ String LinkitOneFlashFileReader::read()
 	if (file)
 	{
 		file.seek(0);
-		while(file.available())
+		while (file.available())
 		{
 			text += (char)file.read();
 		}

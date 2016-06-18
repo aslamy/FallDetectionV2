@@ -10,7 +10,7 @@ ECG250HzCapture::ECG250HzCapture()
 	adas1000->setFRMCTL_Skip4thFrame();
 }
 
-double ECG250HzCapture::read()
+double ECG250HzCapture::read(double s)
 {
-	return 5.0;
+	return 2.0;
 }

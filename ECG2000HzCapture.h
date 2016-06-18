@@ -7,16 +7,12 @@
 
 class ECG2000HzCapture : public ECGCapture
 {
-
 public:
 
 	ECG2000HzCapture();
 	double read();
 private:
-
-
 };
 
 
 #endif
-

@@ -36,7 +36,7 @@ void SPIdev::write(uint8_t* data, uint8_t size)
 uint8_t SPIdev::read(uint8_t data)
 {
 	chipSelectEnable();
-	uint8_t dataOut =  spi.transfer(data);
+	uint8_t dataOut = spi.transfer(data);
 	chipSelectDisable();
 	return dataOut;
 }
@@ -44,7 +44,8 @@ uint8_t SPIdev::read(uint8_t data)
 uint8_t* SPIdev::read(uint8_t* data, uint8_t size)
 {
 	chipSelectEnable();
-	for (int i = 0; i < size; i++) {
+	for (int i = 0; i < size; i++)
+	{
 		data[i] = spi.transfer(data[i]);
 	}
 	chipSelectDisable();
