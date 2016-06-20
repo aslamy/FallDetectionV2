@@ -10,7 +10,3 @@ ECG2000HzCapture::ECG2000HzCapture()
 	adas1000->setFRMCTL_SkipNoneFrame();
 }
 
-double ECG2000HzCapture::read()
-{
-	return 5.0;
-}

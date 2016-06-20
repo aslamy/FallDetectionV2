@@ -865,6 +865,14 @@ the OR of all DC & AC leads off flags.
 #define  ADAS1000_BITS_LENGTH_OF_THREE				0x03
 #define  ADAS1000_BITS_LENGTH_OF_FOUR				0x04
 
+#define ECG_GAIN	1.4
+#define ECG_VREFF	1.8
+
+enum Leadformat
+{
+	DIGITAL = 0 ,
+	ELECTRODE = 1,
+};
 
 class ADAS1000
 {
@@ -872,7 +880,7 @@ public:
 	ADAS1000();
 	void setRegisterValue(uint8_t regAddr, uint32_t regVal);
 	void setRegisterValue(uint32_t regVal);
-	void readData(unsigned char* dataBuffer, int lenght, bool waitForDRDY);
+	void readFrame(uint8_t * dataBuffer);
 	uint32_t getRegisterValue(uint8_t regAddr);
 
 	void setFRMCTL_DataLeadIEnabled(bool enabled);
@@ -968,6 +976,8 @@ public:
 	void setFILTCTL_150HzLowPassFilter(void);
 	void setFILTCTL_250HzLowPassFilter(void);
 	void setFILTCTL_450HzLowPassFilter(void);
+
+	float voltageConversion(uint32_t data, Leadformat format);
 
 	virtual ~ADAS1000();
 private:

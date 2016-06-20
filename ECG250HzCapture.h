@@ -8,11 +8,9 @@
 class ECG250HzCapture : public ECGCapture
 {
 public:
-
-	ECG250HzCapture();
-	double read(double s);
+	void initialize(void);
 private:
 };
 
-
 #endif
+

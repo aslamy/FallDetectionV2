@@ -28,6 +28,12 @@ void ADAS1000::setRegisterValue(uint32_t regVal)
 	spidev.write(writeCommand, 4);
 }
 
+void ADAS1000::readFrame(uint8_t * dataBuffer)
+{
+	uint8_t readData[4] = { 0x40, 0x00, 0x00, 0x00 };
+	spidev.read(readData,dataBuffer, 4);
+}
+/*
 void ADAS1000::readData(unsigned char* dataBuffer, int lenght, bool waitForDRDY)
 {
 	unsigned char readCommand[4] = {0,0,0,0};
@@ -53,7 +59,7 @@ void ADAS1000::readData(unsigned char* dataBuffer, int lenght, bool waitForDRDY)
 		}
 	}
 }
-
+*/
 uint32_t ADAS1000::getRegisterValue(uint8_t regAddr)
 {
 	uint8_t readCommand[4] = {0,0,0,0};
@@ -124,7 +130,7 @@ void ADAS1000::setFRMCTL_CRCWordEnabled(bool enabled)
 
 void ADAS1000::setFRMCTL_ReadyRepeatEnabled(bool enabled)
 {
-	writeBit(ADAS1000_FRMCTL, ADAS1000_FRMCTL_RDYRPT, !enabled);
+	writeBit(ADAS1000_FRMCTL, ADAS1000_FRMCTL_RDYRPT, enabled);
 }
 
 void ADAS1000::setFRMCTL_ElectrodeFormat(void)
@@ -491,6 +497,26 @@ void ADAS1000::setFILTCTL_250HzLowPassFilter(void)
 void ADAS1000::setFILTCTL_450HzLowPassFilter(void)
 {
 	writeBits(ADAS1000_FILTCTL, ADAS1000_FILTCTL_LPF, ADAS1000_BITS_LENGTH_OF_TWO, ADAS1000_FILTCTL_LPF_450HZ);
+}
+
+float ADAS1000::voltageConversion(uint32_t data, Leadformat format)
+{
+	float ecgVoltage = 0;
+
+	if (format == DIGITAL) {
+
+		if (data> 8388608) {
+			ecgVoltage = ((4 * ECG_VREFF*(-(16777216 - data)) / ECG_GAIN) / (16777215));
+		}
+		else {
+			ecgVoltage = ((4 * ECG_VREFF*data) / ECG_GAIN) / (16777215);
+		}
+	}
+	else if (format == ELECTRODE) {
+		ecgVoltage = (2 * data*(ECG_VREFF / ECG_GAIN)) / (16777215);
+	}
+
+	return ecgVoltage;
 }
 
 void ADAS1000::writeBit(uint32_t regAddr, uint32_t bitStart, bool enabled)

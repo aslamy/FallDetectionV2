@@ -52,6 +52,17 @@ uint8_t* SPIdev::read(uint8_t* data, uint8_t size)
 	return data;
 }
 
+uint8_t* SPIdev::read(uint8_t* data,uint8_t*dataBuffer, uint8_t size)
+{
+	chipSelectEnable();
+	for (int i = 0; i < size; i++)
+	{
+		dataBuffer[i] = spi.transfer(data[i]);
+	}
+	chipSelectDisable();
+	return dataBuffer;
+}
+
 void SPIdev::chipSelectEnable()
 {
 	digitalWrite(chipSelectPin, LOW);

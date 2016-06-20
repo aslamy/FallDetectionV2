@@ -6,6 +6,7 @@
 #include "LinkitOneFlashFileReader.h"
 #include <ArduinoJson.h>
 
+
 #define  FILE_NAME "settings.txt"
 
 class SharedPreferences
@@ -20,7 +21,7 @@ private:
 	{};
 	static SharedPreferences *preferences;
 	LinkitOneFlashFileReader fileReader;
-	DynamicJsonBuffer jsonBuffer;
+	ArduinoJson::DynamicJsonBuffer jsonBuffer;
 };
 
 

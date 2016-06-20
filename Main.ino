@@ -12,37 +12,42 @@
 #include <Wire.h>
 #include "LinkedList.h"
 
+ADAS1000 *adas;
 
-LinkitOneFlashFileReader* file;
-HashMap<String, ECGCapture*>* map2;
-
+ECGCapture *c;
 void setup()
 {
 	/* add setup code here */
 
 	Serial.begin(9600);
 
-	map2 = new HashMap<String, ECGCapture*>();
-	/*	adas1000->setRegisterValue(ADAS1000_CMREFCTL, 0x00000B);
-		adas1000->setRegisterValue(ADAS1000_TESTTONE, 0xF8001D);
-		//adas1000->setRegisterValue(ADAS1000_FILTCTL, 0x000008);
-		//adas1000->setRegisterValue(ADAS1000_ECGCTL, 0xF800AE);
-		adas1000->setRegisterValue(ADAS1000_FRMCTL,0x7FFE58);
-		adas1000->setRegisterValue(ADAS1000_FRAMES, 0x000000);
-
-		
-		*/
-
-	
 	delay(3000);
 
+	
+
+	c = ECGCaptureFactory::createECGCapture();
+	c->initialize();
+	
+	
 
 
-	ECGCapture *c = ECGCaptureFactory::createECGCapture();
-	Serial.println(c->read(2));
-
+	adas = new ADAS1000();
+	Serial.iprintf("ADAS1000_CMREFCTL %x\n", adas->getRegisterValue(ADAS1000_CMREFCTL));
+	Serial.iprintf("ADAS1000_FILTCTL %x\n", adas->getRegisterValue(ADAS1000_FILTCTL));
+	Serial.iprintf("ADAS1000_ECGCTL %x\n", adas->getRegisterValue(ADAS1000_ECGCTL));
+	Serial.iprintf("ADAS1000_FRMCTL %x\n", adas->getRegisterValue(ADAS1000_FRMCTL));
 }
+int i = 0;
 
 void loop()
 {
+	LinkedList<float> list = c->read(1000);
+	Serial.println(list.size());
+
+/*	for(int i = 0;i<list.size();i++)
+	{
+		Serial.println(list.get(i));
+	}
+	*/
+	//delete list;
 }
