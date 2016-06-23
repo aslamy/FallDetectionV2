@@ -76,8 +76,7 @@
       <SDLCheck>true</SDLCheck>
       <ForcedIncludeFiles>C:\Users\Benjamin\Documents\Arduino\FallDetectionV2\Main\__vm\.Main.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <PreprocessorDefinitions>printf=iprintf;F_CPU=84000000L;ARDUINO=10609;ARDUINO_MTK_ONE;ARDUINO_ARCH_ARM;__COMPILER_GCC__;__LINKIT_ONE__;__LINKIT_ONE_RELEASE__;USB_VID=0x0E8D;USB_PID=0x0023;USBCON;__cplusplus=201103L;GCC_VERSION=40803;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries\Wire;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries\Wire\utility;C:\Program Files (x86)\Arduino\libraries;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\0val4ksk.c4t\Micro Platforms\default\debuggers;C:\Users\Benjamin\Documents\Arduino\libraries;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\cores\arduino;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\cores\arduino\avr;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\variants\linkit_one;C:\Users\Benjamin\Documents\Arduino\FallDetectionV2\Main;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk/include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk/include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\4.8.3-2014q1\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\arm-none-eabi\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalUsingDirectories>C:\Users\Benjamin\Documents\Arduino\libraries;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Benjamin\Documents\Arduino\libraries\ArduinoJson\src;C:\Users\Benjamin\Documents\Arduino\libraries\ArduinoJson\src\utility;C:\Users\Benjamin\Documents\Arduino\libraries\pubsubclient-2.6\src;C:\Users\Benjamin\Documents\Arduino\libraries\pubsubclient-2.6\src\utility;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries\Wire;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries\Wire\utility;C:\Program Files (x86)\Arduino\libraries;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\0val4ksk.c4t\Micro Platforms\default\debuggers;C:\Users\Benjamin\Documents\Arduino\libraries;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\cores\arduino;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\cores\arduino\avr;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\variants\linkit_one;C:\Users\Benjamin\Documents\Arduino\FallDetectionV2\Main;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk/include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.21\system/libmtk/include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\4.8.3-2014q1\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\arm-none-eabi\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include;C:\Users\Benjamin\AppData\Local\arduino15\packages\LinkIt\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -134,14 +133,20 @@
     <ClInclude Include="ECG500HzLead3Capture.h" />
     <ClInclude Include="ECGCapture.h" />
     <ClInclude Include="ECGCaptureFactory.h" />
+    <ClInclude Include="GPRSConnection.h" />
     <ClInclude Include="HashMap.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkitOneFlashFileReader.h" />
+    <ClInclude Include="MotionCapture.h" />
+    <ClInclude Include="NetworkConnection.h" />
+    <ClInclude Include="MQTTServer.h" />
     <ClInclude Include="SharedPreferences.h" />
     <ClInclude Include="SPIdev.h" />
     <ClInclude Include="TestTone10SinWave250HzCapture.h" />
     <ClInclude Include="TestTone150SinWave250HzCapture.h" />
-    <ClInclude Include="TestToneSquareWave250HzCapture.h" />
+    <ClInclude Include="TestTone250HzCapture.h" />
+    <ClInclude Include="TestToneSquareWave250HzLead1Capture.h" />
+    <ClInclude Include="WiFiConnection.h" />
     <ClInclude Include="__vm\.Main.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
@@ -160,12 +165,18 @@
     <ClCompile Include="ECG500HzLead3Capture.cpp" />
     <ClCompile Include="ECGCapture.cpp" />
     <ClCompile Include="ECGCaptureFactory.cpp" />
+    <ClCompile Include="GPRSConnection.cpp" />
     <ClCompile Include="LinkitOneFlashFileReader.cpp" />
+    <ClCompile Include="MotionCapture.cpp" />
+    <ClCompile Include="NetworkConnection.cpp" />
+    <ClCompile Include="MQTTServer.cpp" />
     <ClCompile Include="SharedPreferences.cpp" />
     <ClCompile Include="SPIdev.cpp" />
     <ClCompile Include="TestTone10SinWave250HzCapture.cpp" />
     <ClCompile Include="TestTone150SinWave250HzCapture.cpp" />
-    <ClCompile Include="TestToneSquareWave250HzCapture.cpp" />
+    <ClCompile Include="TestTone250HzCapture.cpp" />
+    <ClCompile Include="TestToneSquareWave250HzLead1Capture.cpp" />
+    <ClCompile Include="WiFiConnection.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

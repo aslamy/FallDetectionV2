@@ -22,15 +22,15 @@
 #include "TestTone150SinWave250HzCapture.h"
 
 #include "TestTone10SinWave250HzCapture.h"
+#include "TestToneSquareWave250HzLead1Capture.h"
 
-#include "TestToneSquareWave250HzCapture.h"
 #include "HashMap.h"
 #include "SharedPreferences.h"
 
 class ECGCaptureFactory
 {
 public:
-	static ECGCapture* createECGCapture(void);
+	static ECGCapture* createECGCapture(String mode, String rate, String lead);
 	
 	
 private:

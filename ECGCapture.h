@@ -6,13 +6,14 @@
 #include "DataCapture.h"
 #include "ADAS1000.h"
 #include "LinkedList.h"
+#include "MotionCapture.h"
 
-
-class ECGCapture : public DataCapture<LinkedList<float>,int>
+class ECGCapture 
 {
 public:
 	ECGCapture();
 	LinkedList<float> read(int);
+	float read(void);
 	virtual void initialize(void);
 	virtual ~ECGCapture();
 protected:

@@ -8,6 +8,7 @@
 class ECG250HzCapture : public ECGCapture
 {
 public:
+	LinkedList<float> read(int size);
 	void initialize(void);
 private:
 };

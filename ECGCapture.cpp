@@ -8,7 +8,7 @@
 ECGCapture::ECGCapture()
 {
 	adas1000 = new ADAS1000();
-	format = ELECTRODE;
+	format = DIGITAL;
 }
 
 LinkedList<float> ECGCapture::read(int size)
@@ -31,6 +31,23 @@ LinkedList<float> ECGCapture::read(int size)
 		}
 	}
 	return list;
+}
+
+float ECGCapture::read(void)
+{
+	uint8_t dataBuffer[4] = { 0,0,0,0 };
+	do{
+		bool dataNotReady = true;
+		while (dataNotReady)
+		{
+			adas1000->readFrame(dataBuffer);
+			dataNotReady = dataBuffer[0] & 0x40;
+		}
+
+	} while (dataBuffer[0] & 0x80);
+
+	uint32_t data = (dataBuffer[1] << 16) + (dataBuffer[2] << 8) + dataBuffer[3];
+	return adas1000->voltageConversion(data, format);
 }
 
 void ECGCapture::initialize(void)

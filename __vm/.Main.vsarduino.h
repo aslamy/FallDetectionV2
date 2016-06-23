@@ -123,10 +123,18 @@ extern "C" void __cxa_pure_virtual() {;}
 #include <ECGCapture.h>
 #include <ECGCaptureFactory.cpp>
 #include <ECGCaptureFactory.h>
+#include <GPRSConnection.cpp>
+#include <GPRSConnection.h>
 #include <HashMap.h>
 #include <LinkedList.h>
 #include <LinkitOneFlashFileReader.cpp>
 #include <LinkitOneFlashFileReader.h>
+#include <MQTTServer.cpp>
+#include <MQTTServer.h>
+#include <MotionCapture.cpp>
+#include <MotionCapture.h>
+#include <NetworkConnection.cpp>
+#include <NetworkConnection.h>
 #include <SPIdev.cpp>
 #include <SPIdev.h>
 #include <SharedPreferences.cpp>
@@ -135,6 +143,10 @@ extern "C" void __cxa_pure_virtual() {;}
 #include <TestTone10SinWave250HzCapture.h>
 #include <TestTone150SinWave250HzCapture.cpp>
 #include <TestTone150SinWave250HzCapture.h>
-#include <TestToneSquareWave250HzCapture.cpp>
-#include <TestToneSquareWave250HzCapture.h>
+#include <TestTone250HzCapture.cpp>
+#include <TestTone250HzCapture.h>
+#include <TestToneSquareWave250HzLead1Capture.cpp>
+#include <TestToneSquareWave250HzLead1Capture.h>
+#include <WiFiConnection.cpp>
+#include <WiFiConnection.h>
 #endif

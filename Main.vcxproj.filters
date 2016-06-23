@@ -75,9 +75,6 @@
     <ClInclude Include="TestTone150SinWave250HzCapture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TestToneSquareWave250HzCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ECG250HzCapture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -88,6 +85,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ECG500HzLead3Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestToneSquareWave250HzLead1Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone250HzCapture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MotionCapture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkConnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WiFiConnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GPRSConnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MQTTServer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -140,9 +158,6 @@
     <ClCompile Include="TestTone150SinWave250HzCapture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestToneSquareWave250HzCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ECG250HzCapture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -153,6 +168,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ECG500HzLead3Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestToneSquareWave250HzLead1Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone250HzCapture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MotionCapture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WiFiConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GPRSConnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MQTTServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

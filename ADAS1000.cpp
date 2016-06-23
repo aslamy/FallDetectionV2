@@ -235,7 +235,7 @@ void ADAS1000::setTESTTONE_OutPutEnabled(bool enabled)
 
 void ADAS1000::setTESTTONE_ModeEnabled(bool enabled)
 {
-	writeBit(ADAS1000_TESTTONE, ADAS1000_TESTTONE_TONEN, !enabled);
+	writeBit(ADAS1000_TESTTONE, ADAS1000_TESTTONE_TONEN, enabled);
 }
 
 void ADAS1000::setECGCTL_ChannelLAEnabled(bool enabled)
