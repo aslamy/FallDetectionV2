@@ -4,8 +4,8 @@
 
 #include "ECG1000HzCapture.h"
 
-ECG1000HzCapture::ECG1000HzCapture()
-	: ECGCapture()
+
+void ECG1000HzCapture::initialize(void)
 {
 	adas1000->setFRMCTL_Skip2thFrame();
 }

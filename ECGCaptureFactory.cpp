@@ -7,7 +7,17 @@
 ECGCapture* ECGCaptureFactory::createECGCapture(String mode ,String rate ,String lead)
 {
 	HashMap<String,ECGCapture*> *map = createMap();
+	
+	Serial.println(mode);
+	Serial.println(rate);
+	Serial.println(lead);
 	ECGCapture *ecg = map->get(mode + rate + lead);
+
+	if(!ecg)
+	{
+		Serial.println("ECG is null");
+	}
+
 	return (ecg)? ecg : new ECGCapture();
 }
 
@@ -23,10 +33,25 @@ HashMap<String, ECGCapture*>* ECGCaptureFactory::createMap()
 	map->put("ECG500HzLead2", new ECG500HzLead2Capture());
 	map->put("ECG500HzLead3", new ECG500HzLead3Capture());
 
+	map->put("ECG1000HzLead1", new ECG1000HzLead1Capture());
+	map->put("ECG1000HzLead2", new ECG1000HzLead2Capture());
+	map->put("ECG1000HzLead3", new ECG1000HzLead3Capture());
 
-	map->put("TestTone10SinWave250Hz", new TestTone10SinWave250HzCapture());
-	map->put("TestTone150SinWave250Hz", new TestTone150SinWave250HzCapture());
+	map->put("ECG2000HzLead1", new ECG2000HzLead1Capture());
+	map->put("ECG2000HzLead2", new ECG2000HzLead2Capture());
+	map->put("ECG2000HzLead3", new ECG2000HzLead3Capture());
+
 	map->put("TesttoneSquareWave250HzLead1", new TestToneSquareWave250HzLead1Capture());
+	map->put("TestToneSquareWave250HzLead2", new TestToneSquareWave250HzLead2Capture());
+	map->put("TestToneSquareWave250HzLead3", new TestToneSquareWave250HzLead3Capture());
+	
+	map->put("TestTone10SinWave250HzLead1", new TestTone10SinWave250HzLead1Capture());
+	map->put("TestTone10SinWave250HzLead2", new TestTone10SinWave250HzLead2Capture());
+	map->put("TestTone10SinWave250HzLead3", new TestTone10SinWave250HzLead3Capture());
+	
+	map->put("TestTone150SinWave250HzLead1", new TestTone150SinWave250HzLead1Capture());
+	map->put("TestTone150SinWave250HzLead2", new TestTone150SinWave250HzLead2Capture());
+	map->put("TestTone150SinWave250HzLead3", new TestTone150SinWave250HzLead3Capture());
 	
 	return map;
 }

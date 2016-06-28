@@ -60,11 +60,18 @@ bool MQTTServer::isConnected(void)
 	return true;
 }
 
+void MQTTServer::setCallback(void(*callback)(char *, uint8_t *, unsigned int))
+{
+	pubSubClient.setCallback(callback);
+}
+
+
 bool MQTTServer::reconnect(void)
 {
-	Serial.println("reconnect 1");
+	
 	pubSubClient.setServer(host.c_str(), port.toInt());
-	Serial.println("reconnect 2");
+	bool connect = pubSubClient.connect("LinkIt One"+random(10000));
 	pubSubClient.subscribe(subsctibeChannel.c_str());
-	return pubSubClient.connect("LinkIt One"+random(10000));
+	Serial.println("reconnect to MQTT");
+	return connect;
 }

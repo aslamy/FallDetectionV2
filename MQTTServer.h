@@ -18,10 +18,11 @@ public:
 	bool send(String data);
 	void addNetworkConnection(NetworkConnection* connection);
 	bool isConnected(void);
-
+	void setCallback(void(*callback)(char*, uint8_t*, unsigned int));
+	PubSubClient pubSubClient;
 protected:
 	LinkedList<NetworkConnection*> networkList;
-	PubSubClient pubSubClient;
+
 	String host;
 	String port;
 	String publishChannel;

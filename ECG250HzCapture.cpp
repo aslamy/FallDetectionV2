@@ -9,7 +9,7 @@ LinkedList<float> ECG250HzCapture::read(int size)
 {
 	LinkedList<float> list;
 	uint8_t dataBuffer[4] = { 0,0,0,0 };
-	int modulus = 0;
+	int makeIt250Hz = 0;
 	for (int i = 0; i < size * 4; i++)
 	{
 		bool drdy = true;
@@ -21,11 +21,11 @@ LinkedList<float> ECG250HzCapture::read(int size)
 
 		if (dataBuffer[0] < 0x80)
 		{
-			if (modulus%2) {
+			if (makeIt250Hz %2) {
 				uint32_t data = (dataBuffer[1] << 16) + (dataBuffer[2] << 8) + dataBuffer[3];
 				list.add(adas1000->voltageConversion(data, format));
 			}
-			modulus++;
+			makeIt250Hz++;
 		}
 
 	}

@@ -9,7 +9,7 @@ class ECG1000HzCapture : public ECGCapture
 {
 public:
 
-	ECG1000HzCapture();
+	void initialize(void);
 private:
 };
 

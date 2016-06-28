@@ -1,3 +1,13 @@
+
+#include "ECG2000HzLead3Capture.h"
+#include "ECG2000HzLead2Capture.h"
+#include "ECG2000HzLead1Capture.h"
+#include "ECG1000HzLead3Capture.h"
+#include "ECG1000HzLead2Capture.h"
+#include "ECG1000HzLead1Capture.h"
+#include "TestTone150SinWave250HzLead3Capture.h"
+#include "TestTone150SinWave250HzLead2Capture.h"
+#include "TestTone150SinWave250HzLead1Capture.h"
 #include "GPRSConnection.h"
 #include "WiFiConnection.h"
 #include "NetworkConnection.h"
@@ -29,6 +39,22 @@ GPRSConnection *gprs;
 WiFiConnection *wifi;
 
 MQTTServer *server;
+
+void incomingCommand(char* topic, byte* payload, unsigned int length)
+{
+	Serial.print("Recived message on Topic:");
+	Serial.print(topic);
+	Serial.print("    Message:");
+	String incomingMessage;
+	for (int i = 0; i < length; i++)
+	{
+		incomingMessage += (char)payload[i];
+	}
+	Serial.println(incomingMessage);
+
+}
+
+
 void setup()
 {
 
@@ -38,30 +64,42 @@ void setup()
 
 	delay(3000);
 
-	
 
 	SharedPreferences *shared = SharedPreferences::getInstance();
+
 	String mode = shared->getString("ADAS1000_MODE", "ECG");
 	String rate = shared->getString("ADAS1000_DATA_RATE", "250Hz");
 	String lead = shared->getString("ADAS1000_LEAD", "Lead1");
 
-	gprs = new GPRSConnection("4G.tele2.se","","");
-	wifi = new WiFiConnection("WPA","BENJAMIN","sina3944");
+	String wifiAuthentication = shared->getString("WIFI_AUTHENTICATION", "");
+	String wifiAccessPoint = shared->getString("WIFI_ACCESS_POINT", "");
+	String wifiPassword = shared->getString("WIFI_PASSWORD", "");
 
-	server = new MQTTServer("iot.eclipse.org", "1883", "linkitone-data", "linkitone-command");
+	String gprsApn = shared->getString("GPRS_APN", "");
+	String gprsUsername = shared->getString("GPRS_USERNAME", "");
+	String gprsPassword = shared->getString("GPRS_PASSWORD", "");
+
+	String mqttHost = shared->getString("MQTT_HOST", "");
+	String mqttPort = shared->getString("MQTT_PORT", "1883");
+	String mqttPublishChannel = shared->getString("MQTT_PUBLISH_CHANNEL", "linkitone-data");
+	String mqttSubsctibeChannel = shared->getString("MQTT_SUBSCRIBE_CHANNEL", "linkitone-command");
+
+	ecgCapture = ECGCaptureFactory::createECGCapture(mode, rate, lead);
+	ecgCapture->initialize();
+
+	wifi = new WiFiConnection(wifiAuthentication, wifiAccessPoint, wifiPassword);
+
+	gprs = new GPRSConnection(gprsApn,gprsUsername,gprsPassword);
+	
+	server = new MQTTServer(mqttHost, mqttPort, mqttPublishChannel, mqttSubsctibeChannel);
 	server->addNetworkConnection(wifi);
 	server->addNetworkConnection(gprs);
-
-	ecgCapture = ECGCaptureFactory::createECGCapture(mode,rate,lead);
-	ecgCapture->initialize();
+	server->setCallback(incomingCommand);
 
 	bodyMotion = new MotionCapture();
 	bodyMotion->initialize();
 	
 	
-
-
-
 	adas = new ADAS1000();
 	Serial.iprintf("ADAS1000_CMREFCTL %x\n", adas->getRegisterValue(ADAS1000_CMREFCTL));
 	Serial.iprintf("ADAS1000_FILTCTL %x\n", adas->getRegisterValue(ADAS1000_FILTCTL));
@@ -75,6 +113,24 @@ void loop()
 {
 	Serial.println(server->isConnected());
 
-	server->send("Hello");
-	delay(1000);
+	DynamicJsonBuffer jsonBuffer;
+	JsonObject& root = jsonBuffer.createObject();
+	JsonArray& ecgData = root.createNestedArray("ecg");
+	JsonArray& accelerationData = root.createNestedArray("acceleration");
+
+	String sendData;
+
+	for(int i= 0; i<1000;i++)
+	{
+		 ecgData.add(ecgCapture->read(),6);
+		 if(i%4==0)
+		 {
+			 accelerationData.add(bodyMotion->getAccelerationSVM(), 2);
+		 }
+
+	}
+	root.printTo(sendData);
+	server->send(sendData);
 }
+
+

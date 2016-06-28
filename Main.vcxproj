@@ -122,7 +122,13 @@
     <ClInclude Include="DataCapture.h" />
     <ClInclude Include="ECG.h" />
     <ClInclude Include="ECG1000HzCapture.h" />
+    <ClInclude Include="ECG1000HzLead1Capture.h" />
+    <ClInclude Include="ECG1000HzLead2Capture.h" />
+    <ClInclude Include="ECG1000HzLead3Capture.h" />
     <ClInclude Include="ECG2000HzCapture.h" />
+    <ClInclude Include="ECG2000HzLead1Capture.h" />
+    <ClInclude Include="ECG2000HzLead2Capture.h" />
+    <ClInclude Include="ECG2000HzLead3Capture.h" />
     <ClInclude Include="ECG250HzCapture.h" />
     <ClInclude Include="ECG250HzLead1Capture.h" />
     <ClInclude Include="ECG250HzLead2Capture.h" />
@@ -142,10 +148,16 @@
     <ClInclude Include="MQTTServer.h" />
     <ClInclude Include="SharedPreferences.h" />
     <ClInclude Include="SPIdev.h" />
-    <ClInclude Include="TestTone10SinWave250HzCapture.h" />
-    <ClInclude Include="TestTone150SinWave250HzCapture.h" />
+    <ClInclude Include="TestTone10SinWave250HzLead1Capture.h" />
+    <ClInclude Include="TestTone10SinWave250HzLead2Capture.h" />
+    <ClInclude Include="TestTone10SinWave250HzLead3Capture.h" />
+    <ClInclude Include="TestTone150SinWave250HzLead1Capture.h" />
+    <ClInclude Include="TestTone150SinWave250HzLead2Capture.h" />
+    <ClInclude Include="TestTone150SinWave250HzLead3Capture.h" />
     <ClInclude Include="TestTone250HzCapture.h" />
     <ClInclude Include="TestToneSquareWave250HzLead1Capture.h" />
+    <ClInclude Include="TestToneSquareWave250HzLead2Capture.h" />
+    <ClInclude Include="TestToneSquareWave250HzLead3Capture.h" />
     <ClInclude Include="WiFiConnection.h" />
     <ClInclude Include="__vm\.Main.vsarduino.h" />
   </ItemGroup>
@@ -154,7 +166,13 @@
     <ClCompile Include="DataCapture.cpp" />
     <ClCompile Include="ECG.cpp" />
     <ClCompile Include="ECG1000HzCapture.cpp" />
+    <ClCompile Include="ECG1000HzLead1Capture.cpp" />
+    <ClCompile Include="ECG1000HzLead2Capture.cpp" />
+    <ClCompile Include="ECG1000HzLead3Capture.cpp" />
     <ClCompile Include="ECG2000HzCapture.cpp" />
+    <ClCompile Include="ECG2000HzLead1Capture.cpp" />
+    <ClCompile Include="ECG2000HzLead2Capture.cpp" />
+    <ClCompile Include="ECG2000HzLead3Capture.cpp" />
     <ClCompile Include="ECG250HzCapture.cpp" />
     <ClCompile Include="ECG250HzLead1Capture.cpp" />
     <ClCompile Include="ECG250HzLead2Capture.cpp" />
@@ -172,10 +190,16 @@
     <ClCompile Include="MQTTServer.cpp" />
     <ClCompile Include="SharedPreferences.cpp" />
     <ClCompile Include="SPIdev.cpp" />
-    <ClCompile Include="TestTone10SinWave250HzCapture.cpp" />
-    <ClCompile Include="TestTone150SinWave250HzCapture.cpp" />
+    <ClCompile Include="TestTone10SinWave250HzLead1Capture.cpp" />
+    <ClCompile Include="TestTone10SinWave250HzLead2Capture.cpp" />
+    <ClCompile Include="TestTone10SinWave250HzLead3Capture.cpp" />
+    <ClCompile Include="TestTone150SinWave250HzLead1Capture.cpp" />
+    <ClCompile Include="TestTone150SinWave250HzLead2Capture.cpp" />
+    <ClCompile Include="TestTone150SinWave250HzLead3Capture.cpp" />
     <ClCompile Include="TestTone250HzCapture.cpp" />
     <ClCompile Include="TestToneSquareWave250HzLead1Capture.cpp" />
+    <ClCompile Include="TestToneSquareWave250HzLead2Capture.cpp" />
+    <ClCompile Include="TestToneSquareWave250HzLead3Capture.cpp" />
     <ClCompile Include="WiFiConnection.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

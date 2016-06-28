@@ -8,7 +8,6 @@ class ECG500HzLead3Capture : public ECG500HzCapture
 {
 public:
 
-	ECG500HzLead3Capture();
 	void initialize(void);
 
 private:

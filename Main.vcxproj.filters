@@ -69,12 +69,6 @@
     <ClInclude Include="SPIdev.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TestTone10SinWave250HzCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TestTone150SinWave250HzCapture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ECG250HzCapture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -106,6 +100,48 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MQTTServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestToneSquareWave250HzLead2Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestToneSquareWave250HzLead3Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone10SinWave250HzLead1Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone10SinWave250HzLead2Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone10SinWave250HzLead3Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone150SinWave250HzLead1Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone150SinWave250HzLead2Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestTone150SinWave250HzLead3Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG1000HzLead1Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG1000HzLead2Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG1000HzLead3Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG2000HzLead1Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG2000HzLead2Capture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ECG2000HzLead3Capture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -152,12 +188,6 @@
     <ClCompile Include="SPIdev.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestTone10SinWave250HzCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TestTone150SinWave250HzCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ECG250HzCapture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -189,6 +219,48 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MQTTServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestToneSquareWave250HzLead2Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestToneSquareWave250HzLead3Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone10SinWave250HzLead1Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone10SinWave250HzLead2Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone10SinWave250HzLead3Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone150SinWave250HzLead1Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone150SinWave250HzLead2Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestTone150SinWave250HzLead3Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG1000HzLead1Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG1000HzLead2Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG1000HzLead3Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG2000HzLead1Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG2000HzLead2Capture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ECG2000HzLead3Capture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
