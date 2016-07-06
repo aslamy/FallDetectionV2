@@ -50,7 +50,7 @@ float ECGCapture::read(void)
 	return adas1000->voltageConversion(data, format);
 }
 
-void ECGCapture::initialize(void)
+void ECGCapture::initialize()
 {
 	adas1000->setECGCTL_SoftwareReset();
 	adas1000->setECGCTL_PowerOnEnabled(true);

@@ -29,6 +29,9 @@
 #include "ArduinoJson.h"
 #include <PubSubClient.h>
 
+//#include <LBT.h> 
+#include <LBTServer.h>
+
 
 ADAS1000 *adas;
 
@@ -123,7 +126,7 @@ void loop()
 	for(int i= 0; i<1000;i++)
 	{
 		 ecgData.add(ecgCapture->read(),6);
-		 if(i%4==0)
+		// if(i%4==0)
 		 {
 			 accelerationData.add(bodyMotion->getAccelerationSVM(), 2);
 		 }

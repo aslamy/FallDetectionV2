@@ -7,6 +7,7 @@
 
 void ECG1000HzCapture::initialize(void)
 {
+	ECGCapture::initialize();
 	adas1000->setFRMCTL_Skip2thFrame();
 }
 

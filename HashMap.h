@@ -44,7 +44,6 @@ HashMap<K, V>::~HashMap()
 template <class K, class V>
 V HashMap<K, V>::put(K key, V value)
 {
-	//remove(key);
 	Entry<K, V>* entry = new Entry<K, V>();
 	entry->key = key;
 	entry->value = value;
