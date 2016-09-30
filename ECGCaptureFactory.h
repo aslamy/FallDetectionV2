@@ -49,7 +49,7 @@ public:
 	
 	
 private:
-	static HashMap<String, ECGCapture*> *createMap();
+	static HashMap<ECGCapture*> *createMap();
 
 };
 

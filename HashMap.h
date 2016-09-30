@@ -4,6 +4,7 @@
 #define _HASHMAPE_h
 #include <WString.h>
 #include "LinkedList.h"
+#include <WString.h>
 
 
 template <class K, class V>
@@ -13,50 +14,50 @@ struct Entry
 	V value;
 };
 
-template <class K, class V>
+template <class V>
 class HashMap
 {
 public:
 	HashMap();
 	~HashMap();
-	V put(K key, V value);
-	V get(K key);
-	bool remove(K key);
+	V put(String key, V value);
+	V get(String key);
+	bool remove(String key);
 
 
 protected:
 
-	LinkedList<Entry<K, V> >* list;
+	LinkedList<Entry<String, V> >* list;
 };
 
-template <class K, class V>
-HashMap<K, V>::HashMap()
+template <class V>
+HashMap<V>::HashMap()
 {
-	list = new LinkedList<Entry<K, V> >();
+	list = new LinkedList<Entry<String, V> >();
 }
 
-template <class K, class V>
-HashMap<K, V>::~HashMap()
+template <class V>
+HashMap<V>::~HashMap()
 {
 	delete list;
 }
 
-template <class K, class V>
-V HashMap<K, V>::put(K key, V value)
+template <class V>
+V HashMap<V>::put(String key, V value)
 {
-	Entry<K, V>* entry = new Entry<K, V>();
+	Entry<String, V>* entry = new Entry<String, V>();
 	entry->key = key;
 	entry->value = value;
 	list->add(*entry);
 	return value;
 }
 
-template <class K, class V>
-V HashMap<K, V>::get(K key)
+template <class V>
+V HashMap<V>::get(String key)
 {
 	for (int i = 0; i < list->size(); i++)
 	{
-		if (list->get(i).key == key)
+		if (list->get(i).key.equalsIgnoreCase(key))
 		{
 			return list->get(i).value;
 		}
@@ -64,12 +65,12 @@ V HashMap<K, V>::get(K key)
 	return V();
 }
 
-template <class K, class V>
-bool HashMap<K, V>::remove(K key)
+template <class V>
+bool HashMap<V>::remove(String key)
 {
 	for (int i = 0; i < list->size(); i++)
 	{
-		if (list->get(i).key == key)
+		if (list->get(i).key.equalsIgnoreCase(key))
 		{
 			list->remove(i);
 			return true;

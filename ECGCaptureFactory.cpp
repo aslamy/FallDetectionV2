@@ -6,7 +6,7 @@
 
 ECGCapture* ECGCaptureFactory::createECGCapture(String mode ,String rate ,String lead)
 {
-	HashMap<String,ECGCapture*> *map = createMap();
+	HashMap<ECGCapture*> *map = createMap();
 	
 	Serial.println(mode);
 	Serial.println(rate);
@@ -22,9 +22,9 @@ ECGCapture* ECGCaptureFactory::createECGCapture(String mode ,String rate ,String
 }
 
 
-HashMap<String, ECGCapture*>* ECGCaptureFactory::createMap()
+HashMap<ECGCapture*>* ECGCaptureFactory::createMap()
 {
-	HashMap<String, ECGCapture*> *map = new HashMap<String, ECGCapture*>();
+	HashMap<ECGCapture*> *map = new HashMap<ECGCapture*>();
 	map->put("ECG250HzLead1", new ECG250HzLead1Capture());
 	map->put("ECG250HzLead2", new ECG250HzLead2Capture());
 	map->put("ECG250HzLead3", new ECG250HzLead3Capture());

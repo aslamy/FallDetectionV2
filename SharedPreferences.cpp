@@ -4,26 +4,23 @@
 
 #include "SharedPreferences.h"
 
-SharedPreferences* SharedPreferences::preferences = NULL;
-
-SharedPreferences* SharedPreferences::getInstance()
+SharedPreferences::SharedPreferences(String fileName)
 {
-
-	return (preferences)? preferences : preferences = new SharedPreferences() ;
+	fileReader = new LinkitOneFlashFileReader(fileName);
 }
 
 String SharedPreferences::getString(String key, String defValue)
 {
-	JsonObject& root = jsonBuffer.parseObject(fileReader.read());
+	JsonObject& root = jsonBuffer.parseObject(fileReader->read());
 	String value = root[key];
 	return (value.length()) ? value : defValue;
 }
 
 void SharedPreferences::putString(String key, String value)
 {
-	JsonObject& root = jsonBuffer.parseObject(fileReader.read());
+	JsonObject& root = jsonBuffer.parseObject(fileReader->read());
 	root[key] = value;
 	String newValue;
 	root.prettyPrintTo(newValue);
-	fileReader.write(newValue);
+	fileReader->write(newValue);
 }

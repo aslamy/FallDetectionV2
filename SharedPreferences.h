@@ -7,20 +7,15 @@
 #include <ArduinoJson.h>
 
 
-#define  FILE_NAME "settings.txt"
-
 class SharedPreferences
 {
 
 public:
-	static SharedPreferences* getInstance();
+	SharedPreferences(String fileName);
 	String getString(String key, String defValue);
 	void putString(String key, String value);
 private:
-	SharedPreferences() : fileReader(FILE_NAME)
-	{};
-	static SharedPreferences *preferences;
-	LinkitOneFlashFileReader fileReader;
+	LinkitOneFlashFileReader *fileReader;
 	ArduinoJson::DynamicJsonBuffer jsonBuffer;
 };
 
