@@ -15,7 +15,7 @@ MQTTServer::MQTTServer(String host, String port, const String publishChannel, co
 
 bool MQTTServer::send(String data)
 {
-	return pubSubClient.publish(publishChannel.c_str(),data.c_str());
+	return pubSubClient.publish(publishChannel.c_str(), data.c_str());
 }
 
 void MQTTServer::addNetworkConnection(NetworkConnection * connection)
@@ -38,12 +38,12 @@ bool MQTTServer::isConnected(void)
 					if (network->getConnectionType() == WIFI)
 					{
 						pubSubClient.setClient(wifiClient);
-						return reconnect();
+						return connect();
 					}
 					if (network->getConnectionType() == GPRS)
 					{
 						pubSubClient.setClient(gprsClient);
-						return reconnect();
+						return connect();
 					}
 				}else
 				{
@@ -66,12 +66,11 @@ void MQTTServer::setCallback(void(*callback)(char *, uint8_t *, unsigned int))
 }
 
 
-bool MQTTServer::reconnect(void)
+bool MQTTServer::connect(void)
 {
 	
 	pubSubClient.setServer(host.c_str(), port.toInt());
 	bool connect = pubSubClient.connect("LinkIt One"+random(10000));
 	pubSubClient.subscribe(subsctibeChannel.c_str());
-	Serial.println("reconnect to MQTT");
 	return connect;
 }

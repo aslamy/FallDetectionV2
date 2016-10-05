@@ -13,38 +13,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="_core">
-      <UniqueIdentifier>{a13c7375-bcd5-4fe7-8efe-785637633eac}</UniqueIdentifier>
+    <Filter Include="src">
+      <UniqueIdentifier>{429fc59a-2fcf-42ea-b9d9-1c6526c08986}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_core\avr">
-      <UniqueIdentifier>{3735d1f3-c4a4-490f-9152-b9b9d7705e97}</UniqueIdentifier>
+    <Filter Include="src\_micro-api-readonly">
+      <UniqueIdentifier>{de519fdf-657a-4be2-a2c5-8f4a21097dc5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_libraries">
-      <UniqueIdentifier>{7a357cd2-3a9f-4d67-9574-e204c0abb9c4}</UniqueIdentifier>
+    <Filter Include="src\_micro-api-readonly\core">
+      <UniqueIdentifier>{7691837b-7cd3-4c17-8004-b5909f2e1812}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_libraries\ArduinoJson-master">
-      <UniqueIdentifier>{05e1babd-055b-4715-b162-502d3fccf7d9}</UniqueIdentifier>
+    <Filter Include="src\_micro-api-readonly\variants">
+      <UniqueIdentifier>{983b8a36-3eff-453e-94ed-5d0b37f416a3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="_libraries\ArduinoJson-master\src">
-      <UniqueIdentifier>{ac21be08-6ab4-4b70-8e0c-491007ddca25}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="_libraries\ArduinoJson-master\src\Internals">
-      <UniqueIdentifier>{3c4d600c-5472-483c-803e-431886902e43}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="_libraries\pubsubclient-2.6">
-      <UniqueIdentifier>{ecefa24c-6897-43cc-8bf5-e01c7670339c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="_libraries\pubsubclient-2.6\src">
-      <UniqueIdentifier>{c38fa36c-53bd-431d-b0ba-55eb46c6a59c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="_libraries\Wire">
-      <UniqueIdentifier>{6b88841d-0a42-4894-9aea-6371d1c3601c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="_libraries\Wire\src">
-      <UniqueIdentifier>{d13df86e-e6d1-4508-9e61-a19e37c29af2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="_libraries\Wire\src\utility">
-      <UniqueIdentifier>{25f78975-1cd4-4411-975e-93fc5c3b7473}</UniqueIdentifier>
+    <Filter Include="src\_micro-api-readonly\variants\linkit_one">
+      <UniqueIdentifier>{70eaa247-ba3a-4af8-a973-fe0c7388b362}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,9 +34,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.Main.vsarduino.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DataCapture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LinkedList.h">
@@ -79,9 +58,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ADAS1000.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECG.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ECG500HzCapture.h">
@@ -180,131 +156,11 @@
     <ClInclude Include="__vm\.FallDetectionV2.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Arduino.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\binary.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Client.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\HardwareSerial.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\IPAddress.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\itoa.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\LTask.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\LTcpClient.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\LTcpServer.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\LUdp.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\message.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Print.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Printable.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\RingBuffer.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Server.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Stream.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\syscalls.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Tone.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\UARTClass.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Udp.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\WCharacter.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\WInterrupts.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_analog.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_constants.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_digital.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_private.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_pulse.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_shift.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\WMath.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\WString.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\avr\dtostrf.h">
-      <Filter>_core\avr</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\avr\interrupt.h">
-      <Filter>_core\avr</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\avr\pgmspace.h">
-      <Filter>_core\avr</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\variants\linkit_one\pins_arduino.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\variants\linkit_one\variant.h">
-      <Filter>_core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\ArduinoJson.h">
-      <Filter>_libraries\ArduinoJson-master\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Documents\Arduino\libraries\pubsubclient-2.6\src\PubSubClient.h">
-      <Filter>_libraries\pubsubclient-2.6\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\Wire.h">
-      <Filter>_libraries\Wire\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\utility\twi.h">
-      <Filter>_libraries\Wire\src\utility</Filter>
+    <ClInclude Include="GPSConnection.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DataCapture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LinkitOneFlashFileReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -315,9 +171,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ECG250HzLead3Capture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ECG.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ADAS1000.cpp">
@@ -419,113 +272,8 @@
     <ClCompile Include="ECG2000HzLead3Capture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\cxxabi-compat.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\IPAddress.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\itoa.c">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\LTask.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\LTcpClient.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\LTcpServer.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\LUdp.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\main.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Print.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\RingBuffer.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\Stream.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\syscalls_mtk.c">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\UARTClass.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\WInterrupts.c">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring.c">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_analog.c">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_digital.c">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_pulse.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\wiring_shift.c">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\WMath.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\WString.cpp">
-      <Filter>_core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\AppData\Local\arduino15\packages\LinkIt\hardware\arm\1.1.23\cores\arduino\avr\dtostrf.c">
-      <Filter>_core\avr</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\JsonArray.cpp">
-      <Filter>_libraries\ArduinoJson-master\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\JsonBuffer.cpp">
-      <Filter>_libraries\ArduinoJson-master\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\JsonObject.cpp">
-      <Filter>_libraries\ArduinoJson-master\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\JsonVariant.cpp">
-      <Filter>_libraries\ArduinoJson-master\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\Internals\Comments.cpp">
-      <Filter>_libraries\ArduinoJson-master\src\Internals</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\Internals\Encoding.cpp">
-      <Filter>_libraries\ArduinoJson-master\src\Internals</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\Internals\IndentedPrint.cpp">
-      <Filter>_libraries\ArduinoJson-master\src\Internals</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\Internals\JsonParser.cpp">
-      <Filter>_libraries\ArduinoJson-master\src\Internals</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\Internals\List.cpp">
-      <Filter>_libraries\ArduinoJson-master\src\Internals</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\Internals\Prettyfier.cpp">
-      <Filter>_libraries\ArduinoJson-master\src\Internals</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\ArduinoJson-master\src\Internals\StaticStringBuilder.cpp">
-      <Filter>_libraries\ArduinoJson-master\src\Internals</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Documents\Arduino\libraries\pubsubclient-2.6\src\PubSubClient.cpp">
-      <Filter>_libraries\pubsubclient-2.6\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\Wire.cpp">
-      <Filter>_libraries\Wire\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\src\utility\twi.c">
-      <Filter>_libraries\Wire\src\utility</Filter>
+    <ClCompile Include="GPSConnection.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

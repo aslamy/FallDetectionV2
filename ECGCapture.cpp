@@ -37,11 +37,11 @@ float ECGCapture::read(void)
 {
 	uint8_t dataBuffer[4] = { 0,0,0,0 };
 	do{
-		bool dataNotReady = true;
-		while (dataNotReady)
+		bool drdy = true;
+		while (drdy)
 		{
 			adas1000->readFrame(dataBuffer);
-			dataNotReady = dataBuffer[0] & 0x40;
+			drdy = dataBuffer[0] & 0x40;
 		}
 
 	} while (dataBuffer[0] & 0x80);
@@ -59,9 +59,10 @@ void ECGCapture::initialize()
 	adas1000->setECGCTL_ChannelLLEnabled(true);
 	adas1000->setECGCTL_ChannelRAEnabled(true);
 	adas1000->setECGCTL_HighPerformance2MSPS();
-	adas1000->setECGCTL_DifferentialInput();
 	adas1000->setECGCTL_VREFBufferEnabled(true);
 	adas1000->setECGCTL_MasterMode();
+	adas1000->setECGCTL_DifferentialInput();
+
 
 	adas1000->setFRMCTL_DataLeadIEnabled(false);
 	adas1000->setFRMCTL_DataLeadIIEnabled(false);
@@ -74,15 +75,25 @@ void ECGCapture::initialize()
 	adas1000->setFRMCTL_CRCWordEnabled(false);
 	adas1000->setFRMCTL_GPIOWordEnabled(false);
 	adas1000->setFRMCTL_LeadOffStatusEnabled(false);
-	adas1000->setFRMCTL_ElectrodeFormat();
+	adas1000->setFRMCTL_DigitalFormat();
 	adas1000->setFRMCTL_ReadyRepeatEnabled(true);
 
 	adas1000->setCMREFCTL_ShieldDriveEnabled(true);
 	adas1000->setCMREFCTL_RightLegDriveEnabled(true);
 	adas1000->setCMREFCTL_CommonModeIsDrivenOutEnabled(true);
 
-	adas1000->setFILTCTL_2kHNotchFilterForSPIMasterEnabled(true);
-	adas1000->setFILTCTL_2kHNotchFilterEnabled(true);
+
+}
+
+void ECGCapture::setFormat(Leadformat format)
+{
+	this->format = format;
+
+}
+
+Leadformat ECGCapture::getFormat()
+{
+	return this->format;
 }
 
 ECGCapture::~ECGCapture()

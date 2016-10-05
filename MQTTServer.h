@@ -27,9 +27,9 @@ protected:
 	String port;
 	String publishChannel;
 	String subsctibeChannel;
-	bool reconnect(void);
 	LWiFiClient wifiClient;
 	LGPRSClient gprsClient;
+	bool connect(void);
 };
 
 

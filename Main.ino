@@ -1,97 +1,138 @@
-
-#include "ECG2000HzLead3Capture.h"
-#include "ECG2000HzLead2Capture.h"
-#include "ECG2000HzLead1Capture.h"
-#include "ECG1000HzLead3Capture.h"
-#include "ECG1000HzLead2Capture.h"
-#include "ECG1000HzLead1Capture.h"
-#include "TestTone150SinWave250HzLead3Capture.h"
-#include "TestTone150SinWave250HzLead2Capture.h"
-#include "TestTone150SinWave250HzLead1Capture.h"
+#include "GPSConnection.h"
 #include "GPRSConnection.h"
 #include "WiFiConnection.h"
-#include "NetworkConnection.h"
 #include "MQTTServer.h"
 #include "MotionCapture.h"
-#include "TestTone250HzCapture.h"
 #include "SharedPreferences.h"
 #include "LinkitOneFlashFileReader.h"
-#include "HashMap.h"
 #include "ECGCaptureFactory.h"
-#include "DataCapture.h"
-#include "SPIdev.h"
-#include "ECG.h"
 #include "ECGCapture.h"
-#include "ADAS1000.h"
 #include <Arduino.h>
 #include <Wire.h>
 #include "LinkedList.h"
 #include "ArduinoJson.h"
 #include <PubSubClient.h>
-
 #include <LBT.h> 
 #include <LBTServer.h>
-
+#include <WString.h>
 #define  FILE_NAME "settings.txt"
-unsigned int  PACKET_SIZE = 200 ;
 
-ADAS1000 *adas;
+unsigned int LED1 = 7;
+unsigned int BLUETOOTH_PACKET_SIZE = 200;
+unsigned int MQTT_SERVER_PACKET_SIZE = 1000;
+unsigned int sequence = 0;
+
 
 ECGCapture* ecgCapture;
-
-MotionCapture * bodyMotion;
-GPRSConnection *gprs;
-WiFiConnection *wifi;
-
-SharedPreferences *sharedPreferences;
-MQTTServer *server;
-
-LinkitOneFlashFileReader *flashReader;
-
+MotionCapture* bodyMotion;
+GPRSConnection* gprs;
+WiFiConnection* wifi;
+GPSConnection* gps;
+SharedPreferences* sharedPreferences;
+MQTTServer* server;
+LinkitOneFlashFileReader* flashReader;
 String streamingMode;
 
-void incomingCommand(char* topic, byte* payload, unsigned int length)
-{
-	Serial.print("Recived message on Topic:");
-	Serial.print(topic);
-	Serial.print("    Message:");
-	String incomingMessage;
-	for (int i = 0; i < length; i++)
-	{
-		incomingMessage += (char)payload[i];
-	}
-	Serial.println(incomingMessage);
-
-}
+void setup();
+void loop();
+void initialize(void);
+String readJsonData(int size);
+void bluetoothCommands(String text);
+void serverCommands(char* topic, byte* payload, unsigned int length);
+boolean rebootDevice(void* userdata);
+void freeMemory(void);
 
 
 void setup()
 {
-
 	Serial.begin(9600);
-	LBTServer.begin((uint8_t*)"My_BTServer");
 	initialize();
 }
 
-void freeMemory(void)
+void loop()
 {
-	delete adas;
-	delete ecgCapture;
-	delete bodyMotion;
-	delete gprs;
-	delete wifi;
-	delete sharedPreferences;
-	delete server;
-	delete flashReader;
-	
+	if (streamingMode.equalsIgnoreCase("Bluetooth"))
+	{
+		if (LBTServer.connected())
+		{
+			digitalWrite(LED1, HIGH);
+			if (LBTServer.available())
+			{
+				String text = LBTServer.readString();
+				bluetoothCommands(text);
+			}
+			else
+			{
+				String json = readJsonData(BLUETOOTH_PACKET_SIZE);
+				LBTServer.write(json.c_str());
+			}
+		}
+		else
+		{
+			digitalWrite(LED1, LOW);
+			LBTServer.accept(1000);
+		}
+	}
+	else if (streamingMode.equalsIgnoreCase("Server"))
+	{
+		
+		if (server->isConnected())
+		{
+			digitalWrite(LED1, HIGH);
+			String json = readJsonData(MQTT_SERVER_PACKET_SIZE);
+			server->send(json);
+		}
+		else
+		{
+			digitalWrite(LED1, LOW);
+		}
+
+	}
 }
 
+String readJsonData(int size)
+{
+	String ecg;
+	String acceleration;
+
+	for (int i = 0; i < size; i++)
+	{
+		ecg += String(ecgCapture->read(), 6);
+		acceleration += String(bodyMotion->getAccelerationSVM(), 2);
+		if (i < size - 1)
+		{
+			acceleration += ",";
+			ecg += ",";
+		}
+	}
+
+	String sendData = "{\"sequence\":";
+	sendData += sequence++;
+	if (streamingMode.equalsIgnoreCase("Server"))
+	{
+		float latitude;
+		float longitude;
+		gps->getPosition(&latitude, &longitude);
+		sendData += ",\"position\":{\"latitude\":";
+		sendData += String(latitude, 6);
+		sendData += ",\"longitude\":";
+		sendData += String(longitude, 6) + "}";
+	}
+	sendData += ",\"ecg\":[";
+	sendData += ecg;
+	sendData += "]";
+	sendData += ",\"acceleration\":[";
+	sendData += acceleration;
+	sendData += "]}\n";
+	return sendData;
+}
 
 void initialize(void)
 {
+	pinMode(LED1, OUTPUT);
+	digitalWrite(LED1, LOW);
 	flashReader = new LinkitOneFlashFileReader(FILE_NAME);
 	sharedPreferences = new SharedPreferences(FILE_NAME);
-
 	String mode = sharedPreferences->getString("ECG_MODE", "ECG");
 	String rate = sharedPreferences->getString("ECG_RATE", "250Hz");
 	String lead = sharedPreferences->getString("ECG_LEAD", "Lead1");
@@ -117,34 +158,48 @@ void initialize(void)
 
 	gprs = new GPRSConnection(gprsApn, gprsUsername, gprsPassword);
 
+	gps = new GPSConnection();
+
 	server = new MQTTServer(mqttHost, mqttPort, mqttPublishChannel, mqttSubsctibeChannel);
 	server->addNetworkConnection(wifi);
 	server->addNetworkConnection(gprs);
-	server->setCallback(incomingCommand);
+	server->setCallback(serverCommands);
 
 	bodyMotion = new MotionCapture();
 	bodyMotion->initialize();
 
+	if (streamingMode.equalsIgnoreCase("Bluetooth"))
+	{
+		LBTServer.begin((uint8_t*)"LinkItOne_BT");
+	}
+	else
+	{
+		wifi->connect();
+		gprs->connect();
+		gps->powerOn();
+	}
 
-	adas = new ADAS1000();
+
+
+	ADAS1000 *adas = new ADAS1000();
 	Serial.iprintf("ADAS1000_CMREFCTL %x\n", adas->getRegisterValue(ADAS1000_CMREFCTL));
 	Serial.iprintf("ADAS1000_FILTCTL %x\n", adas->getRegisterValue(ADAS1000_FILTCTL));
 	Serial.iprintf("ADAS1000_ECGCTL %x\n", adas->getRegisterValue(ADAS1000_ECGCTL));
 	Serial.iprintf("ADAS1000_FRMCTL %x\n", adas->getRegisterValue(ADAS1000_FRMCTL));
 	Serial.iprintf("ADAS1000_TESTTONE %x\n", adas->getRegisterValue(ADAS1000_TESTTONE));
-	
 }
 
 void bluetoothCommands(String text)
 {
 	if (text.equalsIgnoreCase("READ_SETTINGS"))
 	{
-		String settings = flashReader->read();
+		String settings = "SETTINGS" + flashReader->read();
 		LBTServer.write(settings.c_str());
-		Serial.println("READ");
+		delay(2000);
 	}
-	else
+	else if (text.startsWith("SAVE_SETTINGS"))
 	{
+		text.replace("SAVE_SETTINGS", "");
 		DynamicJsonBuffer jsonBuffer;
 		JsonObject& root = jsonBuffer.parseObject(text);
 		if (root.success())
@@ -154,129 +209,52 @@ void bluetoothCommands(String text)
 			flashReader->write(json);
 			freeMemory();
 			initialize();
-			Serial.println("WRITE 1");
 		}
 	}
 }
 
-unsigned long packet = 0;
 
-void loop()
+void serverCommands(char* topic, byte* payload, unsigned int length)
 {
-
-
-
-	if (LBTServer.connected())
+	String message;
+	for (int i = 0; i < length; i++)
 	{
-
-		if (LBTServer.available())
-		{
-	
-			String text = LBTServer.readString();
-			bluetoothCommands(text);
-			
-		}
-		
+		message += (char)payload[i];
+	}
+	if (message.equalsIgnoreCase("\"command_read_settings\""))
+	{
+		String settingsJson = "{\"settings\":";
+		settingsJson += flashReader->read();
+		settingsJson += "}";
+		server->send(settingsJson);
 	}
 	else
 	{
-		Serial.println("not connected!");
-		LBTServer.accept(1);
-	}
-
-
-	String ecg;
-	String acceleration;
-
-
-	for (int i = 0; i<PACKET_SIZE; i++)
-	{
-		
-		ecg += String(ecgCapture->read(), 6);
-		acceleration += String(bodyMotion->getAccelerationSVM(), 2);
-		
-		if (i < PACKET_SIZE - 1)
+		DynamicJsonBuffer jsonBuffer;
+		JsonObject& root = jsonBuffer.parseObject(message);
+		if (root.success())
 		{
-			acceleration += ",";
-			ecg += ",";
+			String prettyJson;
+			root.prettyPrintTo(prettyJson);
+			flashReader->write(prettyJson);
+			LTask.remoteCall(rebootDevice, NULL);
 		}
-		
 	}
-
-	String sendData = "{\"packet\":";
-	sendData += packet++;
-	//sendData += ",\"position\":{\"latitude\":";
-	//sendData += String(1.2, 6);
-	//sendData += ",\"longitude\":";
-	//sendData += String(1.2, 6);
-	//sendData += "},\"ecg\":\[";
-	sendData += ",\"ecg\":[";
-	sendData += ecg;
-	sendData += "]";
-	sendData += ",\"acceleration\":[";
-	sendData += acceleration;
-	sendData += "]}";
-
-	if (streamingMode.equalsIgnoreCase("Bluetooth"))
-	{
-		if (LBTServer.connected())
-		{
-			if (!LBTServer.available()){
-				LBTServer.write(sendData.c_str());
-
-			}
-		}
-
-	}
-	else if (streamingMode.equalsIgnoreCase("Server"))
-	{
-		
-
-	}
-
-
-
-	//Serial.println(server->isConnected());
-	/*
-	DynamicJsonBuffer jsonBuffer;
-	JsonObject& root = jsonBuffer.createObject();
-	root["packet"] = packet++;
-	JsonArray& ecgData = root.createNestedArray("ecg");
-	JsonArray& accelerationData = root.createNestedArray("acceleration");
-	
-
-	String sendData ;
-
-	for(int i= 0; i<500;i++)
-	{
-		 ecgData.add(ecgCapture->read(),6);
-		// if(i%4==0)
-		 {
-			// accelerationData.add(bodyMotion->getAccelerationSVM(), 2);
-		 }
-
-	}
-	root.printTo(sendData);
-	if (LBTServer.connected())
-	{
-		if (!LBTServer.available()){
-			//unsigned long start = micros();
-			LBTServer.write(sendData.c_str());
-			//unsigned long stopp = micros();
-			//Serial.println(stopp - start);
-			//delay(5000);
-		}
-		
-
-	}
-	
-
-	*/
-	//root.printTo(sendData);
-	//server->send(sendData);
-
-
-
 }
 
+boolean rebootDevice(void* userdata)
+{
+	vm_reboot_normal_start();
+	return true;
+}
 
+void freeMemory(void)
+{
+	delete ecgCapture;
+	delete bodyMotion;
+	delete gprs;
+	delete wifi;
+	delete sharedPreferences;
+	delete server;
+	delete flashReader;
+}

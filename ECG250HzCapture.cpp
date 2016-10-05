@@ -32,6 +32,24 @@ LinkedList<float> ECG250HzCapture::read(int size)
 	return list;
 }
 
+float ECG250HzCapture::read()
+{
+	uint8_t dataBuffer[4] = { 0, 0, 0, 0 };
+	for (int i = 0; i < 2; i++){
+		do{
+			bool drdy = true;
+			while (drdy)
+			{
+				adas1000->readFrame(dataBuffer);
+				drdy = dataBuffer[0] & 0x40;
+			}
+
+		} while (dataBuffer[0] & 0x80);
+	}
+	uint32_t data = (dataBuffer[1] << 16) + (dataBuffer[2] << 8) + dataBuffer[3];
+	return adas1000->voltageConversion(data, format);
+}
+
 void ECG250HzCapture::initialize(void)
 {
 	ECGCapture::initialize();

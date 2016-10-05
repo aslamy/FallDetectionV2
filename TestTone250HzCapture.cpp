@@ -17,5 +17,7 @@ void TestTone250HzCapture::initialize(void)
 	adas1000->setFILTCTL_2kHNotchFilterForSPIMasterEnabled(false);
 	adas1000->setFILTCTL_2kHNotchFilterEnabled(false);
 	adas1000->setFILTCTL_250HzLowPassFilter();
+	adas1000->setFRMCTL_ElectrodeFormat();
+	setFormat(ELECTRODE);
 }
 

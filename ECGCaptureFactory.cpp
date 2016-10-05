@@ -7,17 +7,7 @@
 ECGCapture* ECGCaptureFactory::createECGCapture(String mode ,String rate ,String lead)
 {
 	HashMap<ECGCapture*> *map = createMap();
-	
-	Serial.println(mode);
-	Serial.println(rate);
-	Serial.println(lead);
 	ECGCapture *ecg = map->get(mode + rate + lead);
-
-	if(!ecg)
-	{
-		Serial.println("ECG is null");
-	}
-
 	return (ecg)? ecg : new ECGCapture();
 }
 

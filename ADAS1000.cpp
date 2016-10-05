@@ -33,33 +33,7 @@ void ADAS1000::readFrame(uint8_t * dataBuffer)
 	uint8_t readData[4] = { 0x40, 0x00, 0x00, 0x00 };
 	spidev.read(readData,dataBuffer, 4);
 }
-/*
-void ADAS1000::readData(unsigned char* dataBuffer, int lenght, bool waitForDRDY)
-{
-	unsigned char readCommand[4] = {0,0,0,0};
-	bool ready = true;
 
-	if (waitForDRDY)
-	{
-		while (ready)
-		{
-			for (uint8_t i = 0; i < lenght; i++)
-			{
-				dataBuffer[i] = spidev.read(readCommand[i]);
-			}
-
-			ready = dataBuffer[0] & 0x40;
-		}
-	}
-	else
-	{
-		for (uint8_t i = 0; i < lenght; i++)
-		{
-			dataBuffer[i] = spidev.read(readCommand[i]);
-		}
-	}
-}
-*/
 uint32_t ADAS1000::getRegisterValue(uint8_t regAddr)
 {
 	uint8_t readCommand[4] = {0,0,0,0};
